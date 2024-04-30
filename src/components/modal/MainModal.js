@@ -96,7 +96,7 @@ const MainModal = ({ id, title }) => {
           >
             No, Keep It
           </Button>
-          <Button onClick={handleDelete} className="w-full sm:w-auto">
+          <Button onClick={handleDelete} className="w-full sm:w-auto ">
             Yes, Delete It
           </Button>
         </ModalFooter>

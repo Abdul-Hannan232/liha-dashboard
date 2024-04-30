@@ -65,10 +65,11 @@ const Login = () => {
                   <Button
                     disabled={loading}
                     type="submit"
+                    // className="mt-4 h-12 w-full text-custom-text-color hover:bg-custom-hover-color"
                     className="mt-4 h-12 w-full"
                     style={{ backgroundColor: "#68CC58" }}
-                    onMouseEnter={(e) => (e.target.style.backgroundColor = "#4FAA41")} 
-                    onMouseLeave={(e) => (e.target.style.backgroundColor = "#68CC58")} 
+                    onMouseEnter={(e) => (e.target.style.backgroundColor = "#4FAA41")}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = "#68CC58")}
                     to="/dashboard"
                   >
                     Log in
@@ -94,7 +95,6 @@ const Login = () => {
                   <Link
                     className="text-sm font-medium  hover:underline"
                     style={{ color: "#68CC58" }}
-
                     to="/forgot-password"
                   >
                     Forgot your password?

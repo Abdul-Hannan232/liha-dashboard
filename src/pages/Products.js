@@ -58,26 +58,19 @@ const Products = () => {
         price: sortedField,
       }),
     []
-
-
   );
-
-
 
   // function to clear filters
   const handleClearFilters = () => {
     // console.log("Clearing filters");
-    setCategory('')
-    setSortedField('')
-    setSearchText(null)
+    setCategory("");
+    setSortedField("");
+    setSearchText(null);
   };
 
-
   const { serviceData, handleOnDrop, handleUploadProducts } = useFilter(
-    data?.products,
+    data?.products
   );
-
-
 
   // console.log("🚀 ~  data:", searchText)
   // console.log("🚀 ~  data:", data.products)
@@ -224,7 +217,7 @@ const Products = () => {
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>ID</TableCell>
+                {/* <TableCell>ID</TableCell> */}
                 <TableCell>Product name</TableCell>
                 <TableCell>Category</TableCell>
                 <TableCell>Price</TableCell>

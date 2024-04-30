@@ -16,6 +16,10 @@ module.exports = windmill({
         sans: ['Open Sans', 'sans-serif'],
         serif: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'custom-color': '#68CC58',
+        'custom-hover-color': '#4FAA41',
+      },
       boxShadow: {
         bottom:
           '0 5px 6px -7px rgba(0, 0, 0, 0.6), 0 2px 4px -5px rgba(0, 0, 0, 0.06)',

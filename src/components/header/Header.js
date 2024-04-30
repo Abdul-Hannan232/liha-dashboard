@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { Avatar, Badge, WindmillContext } from '@windmill/react-ui';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+// import { Avatar, Badge, WindmillContext } from '@windmill/react-ui';
+// import { Scrollbars } from 'react-custom-scrollbars-2';
 import {
   IoMenu,
-  IoMoonSharp,
-  IoSettingsOutline,
-  IoSunny,
-  IoNotificationsSharp,
-  IoLogOutOutline,
-  IoGridOutline,
-  IoClose,
+  // IoMoonSharp,
+  // IoSettingsOutline,
+  // IoSunny,
+  // IoNotificationsSharp,
+  // IoLogOutOutline,
+  // IoGridOutline,
+  // IoClose,
 } from 'react-icons/io5';
 
 import { AdminContext } from '../../context/AdminContext';
@@ -20,38 +20,38 @@ import { SidebarContext } from '../../context/SidebarContext';
 const Header = () => {
   const { toggleSidebar } = useContext(SidebarContext);
   const { state, dispatch } = useContext(AdminContext);
-  const { adminInfo } = state;
-  const { mode, toggleMode } = useContext(WindmillContext);
-  const [profileOpen, setProfileOpen] = useState(false);
-  const [notificationOpen, setNotificationOpen] = useState(false);
-  const pRef = useRef();
-  const nRef = useRef();
+  // const { adminInfo } = state;
+  // const { mode, toggleMode } = useContext(WindmillContext);
+  // const [profileOpen, setProfileOpen] = useState(false);
+  // const [notificationOpen, setNotificationOpen] = useState(false);
+  // const pRef = useRef();
+  // const nRef = useRef();
 
-  const handleLogOut = () => {
-    dispatch({ type: 'USER_LOGOUT' });
-    Cookies.remove('adminInfo');
-  };
+  // const handleLogOut = () => {
+  //   dispatch({ type: 'USER_LOGOUT' });
+  //   Cookies.remove('adminInfo');
+  // };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!pRef?.current?.contains(e.target)) {
-        setProfileOpen(false);
-      }
-      if (!nRef?.current?.contains(e.target)) {
-        setNotificationOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-  }, [pRef, nRef]);
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     if (!pRef?.current?.contains(e.target)) {
+  //       setProfileOpen(false);
+  //     }
+  //     if (!nRef?.current?.contains(e.target)) {
+  //       setNotificationOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener('mousedown', handleClickOutside);
+  // }, [pRef, nRef]);
 
-  const handleNotificationOpen = () => {
-    setNotificationOpen(!notificationOpen);
-    setProfileOpen(false);
-  };
-  const handleProfileOpen = () => {
-    setProfileOpen(!profileOpen);
-    setNotificationOpen(false);
-  };
+  // const handleNotificationOpen = () => {
+  //   setNotificationOpen(!notificationOpen);
+  //   setProfileOpen(false);
+  // };
+  // const handleProfileOpen = () => {
+  //   setProfileOpen(!profileOpen);
+  //   setNotificationOpen(false);
+  // };
 
   return (
     <>
@@ -67,9 +67,9 @@ const Header = () => {
           </button>
           <span></span>
 
-          <ul className="flex justify-end items-center flex-shrink-0 space-x-6">
+          {/* <ul className="flex justify-end items-center flex-shrink-0 space-x-6"> */}
             {/* <!-- Theme toggler --> */}
-            <li className="flex">
+            {/* <li className="flex">
               <button
                 className="rounded-md focus:outline-none"
                 onClick={toggleMode}
@@ -81,10 +81,10 @@ const Header = () => {
                   <IoMoonSharp className="w-5 h-5" aria-hidden="true" />
                 )}
               </button>
-            </li>
+            </li> */}
 
             {/* <!-- Notifications menu --> */}
-            <li className="relative inline-block text-left" ref={nRef}>
+            {/* <li className="relative inline-block text-left" ref={nRef}>
               <button
                 className="relative align-middle rounded-md focus:outline-none"
                 onClick={handleNotificationOpen}
@@ -278,10 +278,10 @@ const Header = () => {
                   </div>
                 </>
               )}
-            </li>
+            </li> */}
 
             {/* <!-- Profile menu --> */}
-            <li className="relative inline-block text-left" ref={pRef}>
+            {/* <li className="relative inline-block text-left" ref={pRef}>
               <button
                 className="rounded-full dark:bg-gray-500 bg-green-500 text-white h-8 w-8 font-medium mx-auto focus:outline-none"
                 onClick={handleProfileOpen}
@@ -334,8 +334,8 @@ const Header = () => {
                   </li>
                 </ul>
               )}
-            </li>
-          </ul>
+            </li> */}
+          {/* </ul> */}
         </div>
       </header>
     </>

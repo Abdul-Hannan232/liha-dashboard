@@ -1,15 +1,15 @@
-import React from 'react';
-import { Scrollbars } from 'react-custom-scrollbars-2';
-import ReactTagInput from '@pathofdev/react-tag-input';
+import React from "react";
+import { Scrollbars } from "react-custom-scrollbars-2";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
-import Error from '../form/Error';
-import Title from '../form/Title';
-import InputArea from '../form/InputArea';
-import LabelArea from '../form/LabelArea';
-import SelectOption from '../form/SelectOption';
-import DrawerButton from '../form/DrawerButton';
-import Uploader from '../image-uploader/Uploader';
-import useCategorySubmit from '../../hooks/useCategorySubmit';
+import Error from "../form/Error";
+import Title from "../form/Title";
+import InputArea from "../form/InputArea";
+import LabelArea from "../form/LabelArea";
+import SelectOption from "../form/SelectOption";
+import DrawerButton from "../form/DrawerButton";
+import Uploader from "../image-uploader/Uploader";
+import useCategorySubmit from "../../hooks/useCategorySubmit";
 
 const CategoryDrawer = ({ id }) => {
   // console.log('mmmmmmmmmmm', id);
@@ -26,7 +26,7 @@ const CategoryDrawer = ({ id }) => {
   console.log(children);
   return (
     <>
-      <div className="w-full relative p-6 border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+      <div className="w-full relative p-6  border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
         {id ? (
           <Title
             title="Update Category"
@@ -49,18 +49,20 @@ const CategoryDrawer = ({ id }) => {
               </div>
             </div>
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Type" />
+              <LabelArea label="Name" />
               <div className="col-span-8 sm:col-span-4">
-                <SelectOption
+              <InputArea
                   register={register}
-                  label="Product type"
-                  name="type"
+                  label="Category title"
+                  name="parent"
+                  type="text"
+                  placeholder="Enater name"
                 />
                 <Error errorName={errors.type} />
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Parent Category" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
@@ -72,40 +74,23 @@ const CategoryDrawer = ({ id }) => {
                 />
                 <Error errorName={errors.parent} />
               </div>
-            </div>
+            </div> */}
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Child Category" />
               <div className="col-span-8 sm:col-span-4">
-                {/* {  console.log(children)} */}
-
-                {/* <ReactTagInput
-                  placeholder="Child category  (Write then press enter to add new child category )"
-                  tags={children}
-                  onChange={(child) => setChildren(child)}
-                /> */}
-{/* 
-              
                 <ReactTagInput
                   placeholder="Child category (Write then press enter to add new child category)"
-                  tags={Array.isArray(children) ? children : JSON.parse(children.replace(/\\/g, ''))}
-                  onChange={(child) => {
-                    console.log(child);
-                    setChildren(child);
-                  }}
-                /> */}
-                <ReactTagInput
-                  placeholder="Child category (Write then press enter to add new child category)"
-                  tags={Array.isArray(children) ? children : JSON.parse(children)}
+                  tags={
+                    Array.isArray(children) ? children : JSON.parse(children)
+                  }
                   onChange={(child) => {
                     console.log(child);
                     setChildren(child);
                   }}
                 />
-
-
               </div>
-            </div>
+            </div> */}
           </div>
 
           <DrawerButton id={id} title="Category" />

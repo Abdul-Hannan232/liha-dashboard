@@ -23,8 +23,11 @@ const CategoryTable = ({ categories }) => {
         {/* {console.log('c----------', categories)} */}
         {categories?.map((parent) => (
           <TableRow key={parent?.id || "fallbackKey"}>
-            <TableCell className="font-semibold uppercase text-xs">
+            {/* <TableCell className="font-semibold uppercase text-xs">
               {parent?.id}
+            </TableCell> */}
+            <TableCell className="font-semibold uppercase text-xs">
+             Category {parent?.id}
             </TableCell>
             <TableCell>
               <Avatar
@@ -34,29 +37,19 @@ const CategoryTable = ({ categories }) => {
               />
             </TableCell>
 
-            <TableCell className="font-medium text-sm">
+            {/* <TableCell className="font-medium text-sm">
               <div className="flex flex-row">
-                {/* {console.log('----------xx', parent.children)} */}
-                {/* {JSON.parse(parent.children).map((child, i) => ( */}
-                {/* {parent.children.map((child, i) => (
-                  <span
-                    key={i + 1}
-                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
-                  >
-                    {child}
-                  </span>
-                ))} */}
                 <span
                   className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
                 >
                   {parent.children}
                 </span>
               </div>
-            </TableCell>
+            </TableCell> */}
             <TableCell className="text-sm ">
               {parent.children?.length ?? 0}
             </TableCell>
-            <TableCell className="text-sm">{parent.type}</TableCell>
+            {/* <TableCell className="text-sm">{parent.type}</TableCell> */}
             <TableCell>
               <ShowHideButton id={parent.id} status={parent.status} />
             </TableCell>
