@@ -54,7 +54,7 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
     <div key={file.name}>
       <div>
         <img
-          className="inline-flex border-2 border-gray-100 w-24 max-h-24"
+          className="inline-flex  border-2 border-gray-100 w-24 max-h-24"
           src={file.preview}
           alt={file.name}
         />
@@ -73,7 +73,8 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
   return (
     <div className="w-full text-center">
       <div
-        className="px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-md cursor-pointer"
+        className="px-6 pt-5 pb-6 border border-gray-300 dark:border-gray-600 rounded-md cursor-pointer"
+        // className="px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-md cursor-pointer"
         {...getRootProps()}
       >
         <input {...getInputProps()} />

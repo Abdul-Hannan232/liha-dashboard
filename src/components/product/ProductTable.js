@@ -1,25 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   TableCell,
   TableBody,
   TableRow,
   Badge,
   Avatar,
-} from '@windmill/react-ui';
-import { FiZoomIn } from 'react-icons/fi';
+} from "@windmill/react-ui";
+import { FiZoomIn } from "react-icons/fi";
 
-import Tooltip from '../tooltip/Tooltip';
-import MainModal from '../modal/MainModal';
-import MainDrawer from '../drawer/MainDrawer';
-import ProductDrawer from '../drawer/ProductDrawer';
-import ShowHideButton from '../table/ShowHideButton';
-import EditDeleteButton from '../table/EditDeleteButton';
-import useToggleDrawer from '../../hooks/useToggleDrawer';
+import Tooltip from "../tooltip/Tooltip";
+import MainModal from "../modal/MainModal";
+import MainDrawer from "../drawer/MainDrawer";
+import ProductDrawer from "../drawer/ProductDrawer";
+import ShowHideButton from "../table/ShowHideButton";
+import EditDeleteButton from "../table/EditDeleteButton";
+import useToggleDrawer from "../../hooks/useToggleDrawer";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
 const ProductTable = ({ products }) => {
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
-
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength - 3) + "....";
+    } else {
+      return text;
+    }
+  }
   return (
     <>
       <MainModal id={serviceId} title={title} />
@@ -30,51 +37,66 @@ const ProductTable = ({ products }) => {
         {/* {console.log(products)} */}
         {products?.map((product, i) => (
           <TableRow key={i + 1}>
-            <TableCell>
+            {/* <TableCell>
               <span className="text-xs uppercase font-semibold">
                 {' '}
                 {product.id}
               </span>
+            </TableCell> */}
+            <TableCell>
+              <span className="text-xs capitalize font-semibold">
+                {" "}
+                {product.title}
+              </span>
             </TableCell>
+
             <TableCell>
               <div className="flex items-center">
                 <Avatar
+                 size="large"
                   className="hidden p-1 mr-2 md:block bg-gray-50 shadow-none"
                   src={product.image}
                   alt={product.title}
                 />
-                <div>
+                {/* <div>
                   <h2 className="text-sm font-medium">{product.title}</h2>
-                </div>
+                </div> */}
               </div>
             </TableCell>
-            <TableCell>
+            {/* <TableCell>
               <span className="text-sm">{product.parent}</span>
-            </TableCell>
+            </TableCell> */}
 
             <TableCell>
               <span className="text-sm font-semibold">${product.price}</span>
             </TableCell>
 
             <TableCell>
-              <span className="text-sm">{product.quantity}</span>
+              <span className="text-xs capitalize font-semibold">
+                {" "}
+                {truncateText(product.description, 16)}
+              </span>
             </TableCell>
-            <TableCell>
+
+            {/* <TableCell>
+              <span className="text-sm">{product.quantity}</span>
+            </TableCell> */}
+            {/* <TableCell>
               {product.quantity > 0 ? (
                 <Badge type="success">Selling</Badge>
               ) : (
                 <Badge type="danger">Sold Out</Badge>
               )}
-            </TableCell>
+            </TableCell> */}
 
-            <TableCell>
+            {/* <TableCell>
               <span className="text-sm font-semibold">
                 {product.discount !== 0 && (
                   <span>{product.discount.toFixed(0)}% Off</span>
                 )}
               </span>
-            </TableCell>
-            <TableCell>
+            </TableCell> */}
+            {/* <TableCell>
               <Link
                 to={`/product/${product.id}`}
                 className="flex justify-center text-center text-gray-400 hover:text-green-600"
@@ -86,7 +108,20 @@ const ProductTable = ({ products }) => {
                   bgColor="#10B981"
                 />
               </Link>
+            </TableCell> */}
+            <TableCell>
+              {product.tag
+                .slice(1, product.tag.length - 1)
+                .split(",")
+                .map((t, i) => {
+                  return (
+                    <span class="inline-flex items-center rounded-md bg-gray-300 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 mx-1">
+                      {t.slice(1, t.length - 1)}
+                    </span>
+                  );
+                })}
             </TableCell>
+
             <TableCell>
               <ShowHideButton id={product.id} status={product.status} />
             </TableCell>

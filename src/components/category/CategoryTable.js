@@ -31,6 +31,7 @@ const CategoryTable = ({ categories }) => {
             </TableCell>
             <TableCell>
               <Avatar
+              size="large"
                 className="hidden mr-3 md:block bg-gray-50 p-1"
                 src={parent.icon}
                 alt={parent.parent}
@@ -49,10 +50,12 @@ const CategoryTable = ({ categories }) => {
             <TableCell className="text-sm ">
               {parent.children?.length ?? 0}
             </TableCell>
+            
             {/* <TableCell className="text-sm">{parent.type}</TableCell> */}
             <TableCell>
               <ShowHideButton id={parent.id} status={parent.status} />
             </TableCell>
+
             <TableCell>
               <EditDeleteButton
                 id={parent.id}

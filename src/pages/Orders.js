@@ -64,14 +64,18 @@ const Orders = () => {
 
   return (
     <>
-      <PageTitle>Orders</PageTitle>
+      {/* <PageTitle>Orders</PageTitle> */}
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
         <CardBody>
           <form
             onSubmit={handleSubmitForAll}
-            className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:grid-cols-4 xl:grid-cols-4"
+            // className="py-3 justify-between grid gap-4 lg:gap-6 xl:gap-6 md:grid-cols-4 xl:grid-cols-4"
+            className="py-3 justify-between grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
           >
-            <div>
+                        <h1 className="text-slate-600 text-2xl font-bold">Orders</h1>
+                        <h1 className="text-green-400 text-xl font-bold">Total Value: $13422</h1>
+
+            {/* <div>
               <Input
                 ref={searchRef}
                 value={searchText}
@@ -114,8 +118,9 @@ const Orders = () => {
               className={` cursor-pointer flex items-center justify-center p-3 rounded-full h-12 w-12 text-center mr-4 text-lg text-blue-600 dark:text-blue-100 bg-blue-100 dark:bg-blue-500`}
             >
               <FaFilterCircleXmark />
-            </div>
-            <div>
+            </div> */}
+
+            {/* <div>
               <CSVDownloader data={orderData} filename={'orders'}>
                 <button
                   type="button"
@@ -127,7 +132,7 @@ const Orders = () => {
                   </span>
                 </button>
               </CSVDownloader>
-            </div>
+            </div> */}
           </form>
         </CardBody>
       </Card>
@@ -139,7 +144,7 @@ const Orders = () => {
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>SR NO</TableCell>
+                {/* <TableCell>SR NO</TableCell>
                 <TableCell>Time</TableCell>
                 <TableCell>Shipping Address</TableCell>
                 <TableCell>Phone</TableCell>
@@ -147,7 +152,13 @@ const Orders = () => {
                 <TableCell>Amount</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>
-                <TableCell className="text-right">Invoice</TableCell>
+                <TableCell className="text-right">Invoice</TableCell> */}
+                 <TableCell>ORDER NUMBER</TableCell>
+                <TableCell>PRODUCTS</TableCell>
+                <TableCell>PRICE</TableCell>
+                <TableCell>CUSTOMER EMAIL</TableCell>
+                <TableCell className="text-center">STATUS</TableCell>
+                <TableCell className="text-center">Actions</TableCell>
               </tr>
             </TableHeader>
             <OrderTable orders={dataTable} />

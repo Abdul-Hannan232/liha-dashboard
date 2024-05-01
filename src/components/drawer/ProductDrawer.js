@@ -53,7 +53,7 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product SKU" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
@@ -66,23 +66,23 @@ const ProductDrawer = ({ id }) => {
                 />
                 <Error errorName={errors.sku} />
               </div>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Title/Name" />
+              <LabelArea label="Name" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
-                  label="Product Title/Name"
+                  label="Name"
                   name="title"
                   type="text"
-                  placeholder="Product title"
+                  placeholder="Enter Name"
                 />
                 <Error errorName={errors.title} />
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Slug" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
@@ -95,10 +95,124 @@ const ProductDrawer = ({ id }) => {
                 />
                 <Error errorName={errors.slug} />
               </div>
+            </div> */}
+
+
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Parent Category" />
+              <div className="col-span-8 sm:col-span-4">
+                <Select
+                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
+                  name="parent"
+                  {...register('parent', {
+                    required: 'Product parent category is required!',
+                  })}
+                >
+                  <option value="" defaultValue hidden>
+                    Select parent category
+                  </option>
+                  <ParentCategory />
+                </Select>
+                <Error errorName={errors.parent} />
+              </div>
+            </div> */}
+
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Child Category" />
+              <div className="col-span-8 sm:col-span-4">
+                <Select
+                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
+                  name="children"
+                  {...register('children', {
+                    required: 'Product children category is required!',
+                  })}
+                >
+                  <option value="" defaultValue hidden>
+                    Select child category
+                  </option>
+                  <ChildrenCategory value={watch('parent')} />
+                </Select>
+                <Error errorName={errors.children} />
+              </div>
+            </div> */}
+
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Product Type" />
+              <div className="col-span-8 sm:col-span-4">
+                <SelectOption
+                  register={register}
+                  label="Product type"
+                  name="type"
+                />
+                <Error errorName={errors.type} />
+              </div>
+            </div> */}
+
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Flash Sale" />
+              <div className="col-span-8 sm:col-span-4">
+                <Select
+                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
+                  name="flashSale"
+                  {...register('flashSale', {
+                    required: 'Flash Sale is required!',
+                  })}
+                >
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </Select>
+                <Error errorName={errors.flashSale} />
+              </div>
+            </div> */}
+
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Unit (kg/pc/lb/ml/g...etc)" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Unit"
+                  name="unit"
+                  type="text"
+                  placeholder="Unit"
+                />
+                <Error errorName={errors.unit} />
+              </div>
+            </div> */}
+
+            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Product Quantity" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputValue
+                  register={register}
+                  maxValue={1000}
+                  minValue={0}
+                  label="Quantity"
+                  name="quantity"
+                  type="number"
+                  placeholder="Quantity"
+                />
+                <Error errorName={errors.quantity} />
+              </div>
+            </div> */}
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Price" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputValue
+                  register={register}
+                  maxValue={2000}
+                  minValue={1}
+                  label="Price"
+                  name="originalPrice"
+                  type="number"
+                  placeholder="Price"
+                />
+                <Error errorName={errors.originalPrice} />
+              </div>
             </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Description" />
+              <LabelArea label="Product Details" />
               <div className="col-span-8 sm:col-span-4">
                 <Textarea
                   className="border text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
@@ -118,120 +232,7 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Parent Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="parent"
-                  {...register('parent', {
-                    required: 'Product parent category is required!',
-                  })}
-                >
-                  <option value="" defaultValue hidden>
-                    Select parent category
-                  </option>
-                  <ParentCategory />
-                </Select>
-                <Error errorName={errors.parent} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Child Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="children"
-                  {...register('children', {
-                    required: 'Product children category is required!',
-                  })}
-                >
-                  <option value="" defaultValue hidden>
-                    Select child category
-                  </option>
-                  <ChildrenCategory value={watch('parent')} />
-                </Select>
-                <Error errorName={errors.children} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Type" />
-              <div className="col-span-8 sm:col-span-4">
-                <SelectOption
-                  register={register}
-                  label="Product type"
-                  name="type"
-                />
-                <Error errorName={errors.type} />
-              </div>
-            </div>
-
             {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Flash Sale" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="flashSale"
-                  {...register('flashSale', {
-                    required: 'Flash Sale is required!',
-                  })}
-                >
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
-                </Select>
-                <Error errorName={errors.flashSale} />
-              </div>
-            </div> */}
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Unit (kg/pc/lb/ml/g...etc)" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputArea
-                  register={register}
-                  label="Unit"
-                  name="unit"
-                  type="text"
-                  placeholder="Unit"
-                />
-                <Error errorName={errors.unit} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Quantity" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={1000}
-                  minValue={0}
-                  label="Quantity"
-                  name="quantity"
-                  type="number"
-                  placeholder="Quantity"
-                />
-                <Error errorName={errors.quantity} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Price" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={2000}
-                  minValue={1}
-                  label="Price"
-                  name="originalPrice"
-                  type="number"
-                  placeholder="Price"
-                />
-                <Error errorName={errors.originalPrice} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Sale Price" />
               <div className="col-span-8 sm:col-span-4">
                 <InputValue
@@ -247,7 +248,7 @@ const ProductDrawer = ({ id }) => {
                 />
                 <Error errorName={errors.salePrice} />
               </div>
-            </div>
+            </div> */}
 
             {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Tax1" />
@@ -286,7 +287,7 @@ const ProductDrawer = ({ id }) => {
             </div> */}
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Tag" />
+              <LabelArea label="Tags" />
               <div className="col-span-8 sm:col-span-4">
                 <ReactTagInput
                   placeholder="Product Tag (Write then press enter to add new tag )"
@@ -296,10 +297,11 @@ const ProductDrawer = ({ id }) => {
 
               
               </div>
-            </div>
+            </div> 
           </div>
 
-          <DrawerButton id={id} title="Product" />
+          <DrawerButton id={id} />
+          {/* <DrawerButton id={id} title="Product" /> */}
         </form>
       </Scrollbars>
     </>

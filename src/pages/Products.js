@@ -77,7 +77,7 @@ const Products = () => {
 
   return (
     <>
-      <PageTitle>Products</PageTitle>
+      {/* <PageTitle>Products</PageTitle> */}
       <MainDrawer>
         <ProductDrawer />
       </MainDrawer>
@@ -86,9 +86,9 @@ const Products = () => {
         <CardBody>
           <form
             onSubmit={handleSubmitForAll}
-            className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
+            className="py-3  justify-between grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
           >
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            {/* <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <Input
                 ref={searchRef}
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
@@ -102,11 +102,11 @@ const Products = () => {
                 type="submit"
                 className="absolute right-0 top-0 mt-5 mr-1"
               ></button>
-            </div>
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            </div> */}
+            {/* <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <SelectCategory setCategory={setCategory} />
-            </div>
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
+            </div> */}
+            {/* <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <Select
                 onChange={(e) => setSortedField(e.target.value)}
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
@@ -117,18 +117,18 @@ const Products = () => {
                 <option value="Low">Low to High</option>
                 <option value="High">High to Low</option>
               </Select>
-            </div>
+            </div> */}
 
-            <div
+            {/* <div
               onClick={handleClearFilters}
               className={` cursor-pointer flex items-center justify-center p-3 rounded-full h-12 w-12 text-center mr-4 text-lg text-blue-600 dark:text-blue-100 bg-blue-100 dark:bg-blue-500`}
             >
-              {/* <FiRefreshCw /> */}
               <FaFilterCircleXmark />
-            </div>
+            </div> */}
+            <h1 className="text-slate-600 text-2xl font-bold">Products</h1>
 
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
-              <Button onClick={toggleDrawer} className="w-full rounded-md h-12">
+              <Button onClick={toggleDrawer} className="bg-[#50d71e] w-full rounded-md h-12">
                 <span className="mr-3">
                   <FiPlus />
                 </span>
@@ -139,8 +139,8 @@ const Products = () => {
         </CardBody>
       </Card>
 
-      <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 rounded-t-lg rounded-0">
-        <CardBody>
+      {/* <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 rounded-t-lg rounded-0"> */}
+        {/* <CardBody>
           <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-3">
             <div className="col-span-2">
               <CSVReader
@@ -207,8 +207,8 @@ const Products = () => {
               </div>
             </div>
           </div>
-        </CardBody>
-      </Card>
+        </CardBody> */}
+      {/* </Card> */}
 
       {loading ? (
         <Loading loading={loading} />
@@ -217,7 +217,7 @@ const Products = () => {
           <Table>
             <TableHeader>
               <tr>
-                {/* <TableCell>ID</TableCell> */}
+                {/* <TableCell>ID</TableCell>
                 <TableCell>Product name</TableCell>
                 <TableCell>Category</TableCell>
                 <TableCell>Price</TableCell>
@@ -226,6 +226,13 @@ const Products = () => {
                 <TableCell>Discount</TableCell>
                 <TableCell>Details</TableCell>
                 <TableCell className="text-center">Published</TableCell>
+                <TableCell className="text-right">Actions</TableCell> */}
+                <TableCell>NAME</TableCell>
+                <TableCell>IMAGES</TableCell>
+                <TableCell>PRICE</TableCell>
+                <TableCell>PRODUCT DETAILS</TableCell>
+                <TableCell>TAGS</TableCell>
+                <TableCell className="text-center">ENABLES</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>

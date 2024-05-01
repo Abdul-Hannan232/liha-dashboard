@@ -32,15 +32,20 @@ const sidebar = [
     icon: FiList,
     name: 'Category',
   },
-  {
-    path: '/customers',
-    icon: FiUsers,
-    name: 'Customers',
-  },
+  // {
+  //   path: '/customers',
+  //   icon: FiUsers,
+  //   name: 'Customers',
+  // },
   {
     path: '/orders',
     icon: FiCompass,
     name: 'Orders',
+  },
+  {
+    path: '/orders',
+    icon: FiCompass,
+    name: 'Faq',
   },
   // {
   //   path: '/coupons',

@@ -93,7 +93,7 @@ const Category = () => {
               <Button
                 type="button"
                 onClick={toggleDrawer}
-                className="w-full rounded-md h-12"
+                className="w-full rounded-md h-12 "
               >
                 <span className="mr-3">
                   <FiPlus />

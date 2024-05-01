@@ -40,11 +40,11 @@ const ShowHideButton = ({ id, status }) => {
 
   return (
     <span
-      className="cursor-pointer text-xl flex justify-center text-center"
+      className="cursor-pointer  text-3xl flex justify-center text-center"
       onClick={() => handleChangeStatus(id)}
     >
       {status === 'Show' ? (
-        <BsToggleOn className="text-green-500" />
+        <BsToggleOn className="text-green-500 " />
       ) : (
         <BsToggleOff className="text-orange-500" />
       )}
