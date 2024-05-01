@@ -11,6 +11,7 @@ import PrivateRoute from './components/login/PrivateRoute';
 
 const Layout = lazy(() => import('./layout/Layout'));
 const Login = lazy(() => import('./pages/Login'));
+const Faq = lazy(() => import('./pages/Faq'));
 const SignUp = lazy(() => import('./pages/SignUp'));
 const ForgetPassword = lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
@@ -23,6 +24,7 @@ const App = () => {
         <AccessibleNavigationAnnouncer />
         <Switch>
           <Route path="/login" component={Login} />
+          {/* <Route path="/faq" component={Faq} /> */}
           <Route path="/signup" component={SignUp} />
           <Route path="/forgot-password" component={ForgetPassword} />
           <Route path="/reset-password/:token" component={ResetPassword} />

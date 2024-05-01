@@ -43,7 +43,7 @@ const sidebar = [
     name: 'Orders',
   },
   {
-    path: '/orders',
+    path: '/faq',
     icon: FiCompass,
     name: 'Faq',
   },

@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import Faq from '../pages/Faq';
 
 // use lazy for better code splitting
 const Dashboard = lazy(() => import('../pages/Dashboard'));
@@ -47,6 +48,10 @@ const routes = [
   {
     path: '/customers',
     component: Customers,
+  },
+  {
+    path: '/faq',
+    component: Faq,
   },
   {
     path: '/customer-order/:id',

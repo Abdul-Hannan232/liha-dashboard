@@ -1,22 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   TableCell,
   TableBody,
   TableRow,
-  Badge,
+  // Badge,
   Avatar,
 } from "@windmill/react-ui";
-import { FiZoomIn } from "react-icons/fi";
+// import { FiZoomIn } from "react-icons/fi";
 
-import Tooltip from "../tooltip/Tooltip";
+// import Tooltip from "../tooltip/Tooltip";
 import MainModal from "../modal/MainModal";
 import MainDrawer from "../drawer/MainDrawer";
 import ProductDrawer from "../drawer/ProductDrawer";
 import ShowHideButton from "../table/ShowHideButton";
 import EditDeleteButton from "../table/EditDeleteButton";
 import useToggleDrawer from "../../hooks/useToggleDrawer";
-import ReactTagInput from "@pathofdev/react-tag-input";
 
 const ProductTable = ({ products }) => {
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
