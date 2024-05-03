@@ -15,3 +15,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.base-color {
+  color: #68CC58 !important;
+}
+
+
+.base-bg-color {
+  background: #68CC58 !important;
+}
+.base-bg-color:hover {
+  background: #4FAA41 !important;
+}
+.danger-bg-color {
+  background: #D60000 !important;
+}
+.danger-bg-color:hover {
+  background: #b40202 !important;
+}
+.custom-icon{
+  position: absolute !important;
+  right: -10px !important;
+ margin-top: -14px !important;
+  
+}

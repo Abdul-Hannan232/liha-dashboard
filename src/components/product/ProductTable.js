@@ -53,7 +53,7 @@ const ProductTable = ({ products }) => {
               <div className="flex items-center">
                 <Avatar
                  size="large"
-                  className="hidden p-1 mr-2 md:block bg-gray-50 shadow-none"
+                  className="hidden  mr-2 md:block bg-gray-50 shadow-none"
                   src={product.image}
                   alt={product.title}
                 />

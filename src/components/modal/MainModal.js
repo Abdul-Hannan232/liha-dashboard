@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Modal, ModalBody, ModalFooter, Button } from '@windmill/react-ui';
-import { FiTrash2 } from 'react-icons/fi';
+import { Modal, ModalBody, ModalFooter, Button , ModalHeader} from '@windmill/react-ui';
+// import { FiTrash2 } from 'react-icons/fi';
+import { FiX, FiTrash2 } from 'react-icons/fi';
 
 import UserServices from '../../services/UserServices';
 import AdminServices from '../../services/AdminServices';
@@ -75,7 +76,14 @@ const MainModal = ({ id, title }) => {
   return (
     <>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <ModalBody className="text-center custom-modal px-8 pt-6 pb-4">
+        
+      <ModalHeader className="flex justify-end ">
+    <button onClick={closeModal} className="danger-bg-color text-white p-1 rounded-full focus:outline-none">
+      <FiX />
+    </button>
+  </ModalHeader>
+        <ModalBody className="text-center custom-modal px-8 pt-2 pb-4">
+
           <span className="flex justify-center text-3xl mb-6 text-red-500">
             <FiTrash2 />
           </span>
@@ -96,7 +104,7 @@ const MainModal = ({ id, title }) => {
           >
             No, Keep It
           </Button>
-          <Button onClick={handleDelete} className="w-full sm:w-auto ">
+          <Button onClick={handleDelete} className="w-full sm:w-auto danger-bg-color ">
             Yes, Delete It
           </Button>
         </ModalFooter>

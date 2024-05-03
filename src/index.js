@@ -6,6 +6,7 @@ import './assets/css/tailwind.css';
 import './assets/css/tailwind.output.css';
 import '@pathofdev/react-tag-input/build/index.css';
 import App from './App';
+import "./index.css"
 import myTheme from './assets/theme/myTheme';
 import { AdminProvider } from './context/AdminContext';
 import { SidebarProvider } from './context/SidebarContext';

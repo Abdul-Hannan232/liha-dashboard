@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
-import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
+import React, { useContext } from "react";
+import { useLocation } from "react-router-dom";
+import { BsToggleOff, BsToggleOn } from "react-icons/bs";
 
-import { notifySuccess, notifyError } from '../../utils/toast';
-import ProductServices from '../../services/ProductServices';
-import CategoryServices from '../../services/CategoryServices';
-import { SidebarContext } from '../../context/SidebarContext';
+import { notifySuccess, notifyError } from "../../utils/toast";
+import ProductServices from "../../services/ProductServices";
+import CategoryServices from "../../services/CategoryServices";
+import { SidebarContext } from "../../context/SidebarContext";
 
 const ShowHideButton = ({ id, status }) => {
   const location = useLocation();
@@ -13,13 +13,13 @@ const ShowHideButton = ({ id, status }) => {
 
   const handleChangeStatus = (id) => {
     let newStatus;
-    if (status === 'Show') {
-      newStatus = 'Hide';
+    if (status === "Show") {
+      newStatus = "Hide";
     } else {
-      newStatus = 'Show';
+      newStatus = "Show";
     }
 
-    if (location.pathname === '/category') {
+    if (location.pathname === "/category") {
       CategoryServices.updateStatus(id, { status: newStatus })
         .then((res) => {
           setIsUpdate(true);
@@ -28,7 +28,7 @@ const ShowHideButton = ({ id, status }) => {
         .catch((err) => notifyError(err.message));
     }
 
-    if (location.pathname === '/products') {
+    if (location.pathname === "/products") {
       ProductServices.updateStatus(id, { status: newStatus })
         .then((res) => {
           setIsUpdate(true);
@@ -43,8 +43,8 @@ const ShowHideButton = ({ id, status }) => {
       className="cursor-pointer  text-3xl flex justify-center text-center"
       onClick={() => handleChangeStatus(id)}
     >
-      {status === 'Show' ? (
-        <BsToggleOn className="text-green-500 " />
+      {status === "Show" ? (
+        <BsToggleOn className="base-color " />
       ) : (
         <BsToggleOff className="text-orange-500" />
       )}

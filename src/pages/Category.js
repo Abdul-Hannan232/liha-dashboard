@@ -25,6 +25,7 @@ import CategoryTable from "../components/category/CategoryTable";
 import MainDrawer from "../components/drawer/MainDrawer";
 import CategoryDrawer from "../components/drawer/CategoryDrawer";
 // import { FaFilterCircleXmark } from "react-icons/fa6";
+import { category } from "../data/category";
 
 const Category = () => {
   const { toggleDrawer } = useContext(SidebarContext);
@@ -93,9 +94,9 @@ const Category = () => {
               <Button
                 type="button"
                 onClick={toggleDrawer}
-                className="w-full rounded-md h-12 "
+                className="w-full rounded-md h-12 base-bg-color "
               >
-                <span className="mr-3">
+                <span className="mr-3 ">
                   <FiPlus />
                 </span>
                 Add Category
@@ -127,6 +128,7 @@ const Category = () => {
                 <TableCell className="text-right">Actions</TableCell> */}
               </tr>
             </TableHeader>
+            {/* <CategoryTable categories={category} /> */}
             <CategoryTable categories={dataTable} />
           </Table>
           <TableFooter>

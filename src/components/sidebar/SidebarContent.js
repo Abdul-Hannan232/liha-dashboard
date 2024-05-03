@@ -26,7 +26,7 @@ const SidebarContent = () => {
           <img src="{logoLight}" alt="dashtar" width="135" className="pl-6" />
         ) : (
           <div className="flex items-center justify-start ml-5">
-            <img src={logoDark} alt="dashtar" width="40"  />
+            <img src={logoDark}  alt="dashtar" width="40"  />
             <h1 className="text-2xl font-bold">LIHA</h1>
             
           </div>
@@ -41,12 +41,14 @@ const SidebarContent = () => {
               <NavLink
                 exact
                 to={route.path}
-                className="px-6 py-4 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-green-700 dark:hover:text-gray-200"
-                activeClassName="text-green-500 dark:text-gray-100"
+                className="px-6 py-4 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-[#68CC58] dark:hover:text-gray-200"
+                // className="px-6 py-4 inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-green-700 dark:hover:text-gray-200"
+                // activeClassName="text-green-500 dark:text-gray-100"
+                activeClassName="base-color"
               >
                 <Route path={route.path} exact={route.exact}>
                   <span
-                    className="absolute inset-y-0 left-0 w-1 bg-green-500 rounded-tr-lg rounded-br-lg"
+                    className="absolute inset-y-0 left-0 w-1 base-bg-color rounded-tr-lg rounded-br-lg"
                     aria-hidden="true"
                   ></span>
                 </Route>
@@ -58,7 +60,7 @@ const SidebarContent = () => {
         )}
       </ul>
       <span className="lg:fixed bottom-0 px-6 py-6 w-64 mx-auto relative mt-3 block">
-        <Button onClick={handleLogOut} size="large" className="w-full">
+        <Button onClick={handleLogOut} size="large" className="w-full base-bg-color">
           <span className="flex items-center">
             <IoLogOutOutline className="mr-3 text-lg" />
             <span className="text-sm">Log out</span>

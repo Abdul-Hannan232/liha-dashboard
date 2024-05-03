@@ -16,8 +16,8 @@ const DrawerButton = ({id, title}) => {
             Cancel 
           </Button>
         </div>
-        <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-          <Button type="submit" className="w-full h-12">
+        <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow ">
+          <Button type="submit" className="w-full h-12 base-bg-color">
             {" "}
             {id ? <span>Update {title}</span> : <span>Add {title}</span>}
           </Button>

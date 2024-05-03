@@ -172,7 +172,7 @@ const myTheme = {
         regular: 'p-2 rounded-lg',
         small: 'p-2 rounded-md',
       },
-      pagination: 'px-3 py-1 rounded-md text-xs',
+      pagination: 'px-3 py-1 rounded-md text-xs ',
     },
     // styles applied to the SVG icon
     icon: {

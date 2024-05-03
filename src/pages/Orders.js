@@ -73,7 +73,7 @@ const Orders = () => {
             className="py-3 justify-between grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
           >
                         <h1 className="text-slate-600 text-2xl font-bold">Orders</h1>
-                        <h1 className="text-green-400 text-xl font-bold">Total Value: $13422</h1>
+                        <h1 className="base-color text-xl font-bold">Total Value: $13422</h1>
 
             {/* <div>
               <Input
@@ -169,6 +169,7 @@ const Orders = () => {
               resultsPerPage={10}
               onChange={handleChangePage}
               label="Table navigation"
+              
             />
           </TableFooter>
         </TableContainer>

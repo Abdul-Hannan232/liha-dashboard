@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as dayjs from 'dayjs';
 import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
+import useToggleDrawer from "../../hooks/useToggleDrawer";
+
 
 import Status from '../table/Status';
-import { FiZoomIn } from 'react-icons/fi'; 
-import Tooltip from '../tooltip/Tooltip';
-import SelectStatus from '../form/SelectStatus';
+// import { FiZoomIn } from 'react-icons/fi'; 
+// import Tooltip from '../tooltip/Tooltip';
+// import SelectStatus from '../form/SelectStatus';
 import EditDeleteButton from '../table/EditDeleteButton';
 
-const OrderTable = ({ orders }) => {
+const OrderTable = ({ orders }) => { 
+  const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+
   return (
     <>
       <TableBody>
@@ -18,7 +22,7 @@ const OrderTable = ({ orders }) => {
         {orders?.map((order, i) => (
         
           <TableRow key={i + 1}>
-              {console.log(order)}
+              {/* {console.log(order)} */}
             <TableCell>
               {/* <span className="font-semibold uppercase text-xs">{i + 1}</span> */}
               <span className="font-semibold uppercase text-xs">#uiagseu2</span>
@@ -81,8 +85,10 @@ const OrderTable = ({ orders }) => {
             <TableCell>
               <EditDeleteButton
                 id={order.id}
-                title={order.title}
-               action="orderAction"
+                title="delete"
+                handleUpdate={handleUpdate}
+                handleModalOpen={handleModalOpen}
+                action="orderAction"
               />
             </TableCell>
           </TableRow>

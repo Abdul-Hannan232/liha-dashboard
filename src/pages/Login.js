@@ -66,10 +66,10 @@ const Login = () => {
                     disabled={loading}
                     type="submit"
                     // className="mt-4 h-12 w-full text-custom-text-color hover:bg-custom-hover-color"
-                    className="mt-4 h-12 w-full"
-                    style={{ backgroundColor: "#68CC58" }}
-                    onMouseEnter={(e) => (e.target.style.backgroundColor = "#4FAA41")}
-                    onMouseLeave={(e) => (e.target.style.backgroundColor = "#68CC58")}
+                    className="mt-4 h-12 w-full base-bg-color"
+                    // style={{ backgroundColor: "#68CC58" }}
+                    // onMouseEnter={(e) => (e.target.style.backgroundColor = "#4FAA41")}
+                    // onMouseLeave={(e) => (e.target.style.backgroundColor = "#68CC58")}
                     to="/dashboard"
                   >
                     Log in

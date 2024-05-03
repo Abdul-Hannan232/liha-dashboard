@@ -15,7 +15,7 @@ const EditDeleteButton = ({ id, handleUpdate, handleModalOpen, title, action }) 
           onClick={() => handleUpdate(id)}
           className="p-2 cursor-pointer text-gray-400 hover:text-green-600"
         >
-          <Tooltip id="edit" Icon={FiEdit} title="Edit" bgColor="#10B981" />
+          <Tooltip id="edit" Icon={FiEdit} title="Edit" bgColor="#68CC58" />
         </div>
   )
 }

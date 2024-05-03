@@ -61,12 +61,12 @@ const Products = () => {
   );
 
   // function to clear filters
-  const handleClearFilters = () => {
-    // console.log("Clearing filters");
-    setCategory("");
-    setSortedField("");
-    setSearchText(null);
-  };
+  // const handleClearFilters = () => {
+  //   // console.log("Clearing filters");
+  //   setCategory("");
+  //   setSortedField("");
+  //   setSearchText(null);
+  // };
 
   const { serviceData, handleOnDrop, handleUploadProducts } = useFilter(
     data?.products
@@ -128,7 +128,7 @@ const Products = () => {
             <h1 className="text-slate-600 text-2xl font-bold">Products</h1>
 
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
-              <Button onClick={toggleDrawer} className="bg-[#50d71e] w-full rounded-md h-12">
+              <Button onClick={toggleDrawer} className="base-bg-color w-full rounded-md h-12">
                 <span className="mr-3">
                   <FiPlus />
                 </span>

@@ -22,15 +22,16 @@ const sidebar = [
   //   icon: FiGrid, // icon
   //   name: 'Dashboard', // name that appear in Sidebar
   // },
+ 
+  {
+    path: '/category',
+    icon: FiList,
+    name: 'Categories',
+  },
   {
     path: '/products',
     icon: FiShoppingBag,
     name: 'Products',
-  },
-  {
-    path: '/category',
-    icon: FiList,
-    name: 'Category',
   },
   // {
   //   path: '/customers',
