@@ -6,7 +6,7 @@ import { FiX, FiTrash2 } from 'react-icons/fi';
 
 import UserServices from '../../services/UserServices';
 import AdminServices from '../../services/AdminServices';
-import CouponServices from '../../services/CouponServices';
+// import CouponServices from '../../services/CouponServices';
 import ProductServices from '../../services/ProductServices';
 import CategoryServices from '../../services/CategoryServices';
 import { SidebarContext } from '../../context/SidebarContext';
@@ -51,16 +51,16 @@ const MainModal = ({ id, title }) => {
       setServiceId();
     }
 
-    if (location.pathname === '/coupons') {
-      CouponServices.deleteCoupon(id)
-        .then((res) => {
-          setIsUpdate(true);
-          notifySuccess(res.message);
-        })
-        .catch((err) => notifyError(err.message));
-      closeModal();
-      setServiceId();
-    }
+    // if (location.pathname === '/coupons') {
+    //   CouponServices.deleteCoupon(id)
+    //     .then((res) => {
+    //       setIsUpdate(true);
+    //       notifySuccess(res.message);
+    //     })
+    //     .catch((err) => notifyError(err.message));
+    //   closeModal();
+    //   setServiceId();
+    // }
     if (location.pathname === '/our-staff') {
       AdminServices.deleteStaff(id)
         .then((res) => {

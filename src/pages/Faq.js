@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+// import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import {
   Table,
   TableHeader,
   TableCell,
   TableFooter,
   TableContainer,
-  Select,
-  Input,
+  // Select,
+  // Input,
   Button,
   Card,
   CardBody,
@@ -29,13 +30,13 @@ const Faq = () => {
     currentPage,
     handleChangePage,
     searchText,
-    setSearchText,
     category,
-    setCategory,
-    searchRef,
+    // setSearchText,
+    // setCategory,
+    // searchRef,
+    // setSortedField,
     handleSubmitForAll,
     sortedField,
-    setSortedField,
     limitData,
   } = useContext(SidebarContext);
 
@@ -73,7 +74,7 @@ const Faq = () => {
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
               <Button
                 onClick={toggleDrawer}
-                className="base-bg-color w-full rounded-md h-12"
+                className=" w-full rounded-md h-12"
               >
                 <span className="mr-3">
                   <FiPlus />

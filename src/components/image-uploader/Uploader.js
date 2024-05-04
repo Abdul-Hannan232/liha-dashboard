@@ -50,17 +50,17 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
   }, [files, uploadUrl, setImageUrl]);
 
   
-  const thumbs = files.map((file) => (
-    <div key={file.name}>
-      <div>
-        <img
-          className="inline-flex  border-2 border-gray-100 w-24 max-h-24"
-          src={file.preview}
-          alt={file.name}
-        />
-      </div>
-    </div>
-  ));
+  // const thumbs = files.map((file) => (
+  //   <div key={file.name}>
+  //     <div>
+  //       <img
+  //         className="inline-flex  border-2 border-gray-100 w-24 max-h-24"
+  //         src={file.preview}
+  //         alt={file.name}
+  //       />
+  //     </div>
+  //   </div>
+  // ));
 
   useEffect(
     () => () => {

@@ -6,7 +6,7 @@ import {
   TableFooter,
   TableContainer,
   Button,
-  Input,
+  // Input,
   Card,
   CardBody,
   Pagination,
@@ -25,7 +25,7 @@ import CategoryTable from "../components/category/CategoryTable";
 import MainDrawer from "../components/drawer/MainDrawer";
 import CategoryDrawer from "../components/drawer/CategoryDrawer";
 // import { FaFilterCircleXmark } from "react-icons/fa6";
-import { category } from "../data/category";
+// import { category } from "../data/category";
 
 const Category = () => {
   const { toggleDrawer } = useContext(SidebarContext);
@@ -94,7 +94,7 @@ const Category = () => {
               <Button
                 type="button"
                 onClick={toggleDrawer}
-                className="w-full rounded-md h-12 base-bg-color "
+                className="w-full rounded-md h-12  "
               >
                 <span className="mr-3 ">
                   <FiPlus />

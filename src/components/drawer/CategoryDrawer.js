@@ -1,12 +1,12 @@
 import React from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import ReactTagInput from "@pathofdev/react-tag-input";
+// import ReactTagInput from "@pathofdev/react-tag-input";
 
 import Error from "../form/Error";
 import Title from "../form/Title";
 import InputArea from "../form/InputArea";
 import LabelArea from "../form/LabelArea";
-import SelectOption from "../form/SelectOption";
+// import SelectOption from "../form/SelectOption";
 import DrawerButton from "../form/DrawerButton";
 import Uploader from "../image-uploader/Uploader";
 import useCategorySubmit from "../../hooks/useCategorySubmit";
@@ -21,7 +21,7 @@ const CategoryDrawer = ({ id }) => {
     imageUrl,
     setImageUrl,
     children,
-    setChildren,
+    // setChildren,
   } = useCategorySubmit(id);
   console.log(children);
   return (

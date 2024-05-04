@@ -114,7 +114,7 @@ const ProductTable = ({ products }) => {
                 .split(",")
                 .map((t, i) => {
                   return (
-                    <span class="inline-flex items-center rounded-md bg-gray-300 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 mx-1">
+                    <span key={i} className="inline-flex items-center rounded-md bg-gray-300 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 mx-1">
                       {t.slice(1, t.length - 1)}
                     </span>
                   );

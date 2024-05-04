@@ -1,42 +1,42 @@
 import React, { useContext } from 'react';
-import { CSVDownloader } from 'react-papaparse';
+// import { CSVDownloader } from 'react-papaparse';
 import {
   Table,
   TableHeader,
   TableCell,
   TableFooter,
   TableContainer,
-  Select,
-  Input,
+  // Select,
+  // Input,
   Card,
   CardBody,
   Pagination,
 } from '@windmill/react-ui';
-import { IoCloudDownloadOutline } from 'react-icons/io5';
+// import { IoCloudDownloadOutline } from 'react-icons/io5';
 
-import orderData from '../utils/orders';
+// import orderData from '../utils/orders';
 import useAsync from '../hooks/useAsync';
 import useFilter from '../hooks/useFilter';
 import NotFound from '../components/table/NotFound';
 import OrderServices from '../services/OrderServices';
 import Loading from '../components/preloader/Loading';
 import OrderTable from '../components/order/OrderTable';
-import PageTitle from '../components/Typography/PageTitle';
+// import PageTitle from '../components/Typography/PageTitle';
 import { SidebarContext } from '../context/SidebarContext';
-import { FaFilterCircleXmark } from "react-icons/fa6";
+// import { FaFilterCircleXmark } from "react-icons/fa6";
 
 
 const Orders = () => {
   const {
     time,
-    setTime,
     currentPage,
-    setSearchText,
-    searchText,
-    searchRef,
-    setSortedField,
+    // setTime,
+    // setSearchText,
+    // searchRef,
+    // setSortedField,
+    // setStatus,
     status,
-    setStatus,
+    searchText,
     handleChangePage,
     handleSubmitForAll,
     resultsPerPage,
@@ -55,12 +55,12 @@ const Orders = () => {
   const { dataTable, serviceData } = useFilter(data.orders);
 
   // function to clear filters
-  const handleClearFilters = () => {
-    // console.log("Clearing filters");
-    setSearchText('')
-    setStatus('')
-    setTime(null)
-  };
+  // const handleClearFilters = () => {
+  //   // console.log("Clearing filters");
+  //   setSearchText('')
+  //   setStatus('')
+  //   setTime(null)
+  // };
 
   return (
     <>

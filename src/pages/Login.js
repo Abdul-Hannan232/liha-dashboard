@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@windmill/react-ui";
-import { ImFacebook, ImGoogle } from "react-icons/im";
+// import { ImFacebook, ImGoogle } from "react-icons/im";
 
 import Error from "../components/form/Error";
 import LabelArea from "../components/form/LabelArea";

@@ -184,9 +184,10 @@ const myTheme = {
       right: 'ml-2 -mr-1',
     },
     primary: {
-      base: 'text-white bg-green-500 border border-transparent',
+      base: 'text-white base-bg-color border border-transparent',
       active:
-        'active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300',
+        'active:base-bg-color focus:ring focus:ring-purple-300',
+        // 'active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300',
       disabled: 'opacity-50 cursor-not-allowed',
     },
     outline: {

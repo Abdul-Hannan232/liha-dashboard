@@ -1,19 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
+// import React, { useContext, useEffect, useState } from "react";
 import {
   Table,
   TableHeader,
   TableCell,
   TableFooter,
   TableContainer,
-  Select,
-  Input,
+  // Select,
+  // Input,
   Button,
   Card,
   CardBody,
   Pagination,
 } from "@windmill/react-ui";
-import { FiPlus, FiRefreshCw } from "react-icons/fi";
-import { CSVReader, CSVDownloader } from "react-papaparse";
+import { FiPlus } from "react-icons/fi";
+// import { FiPlus, FiRefreshCw } from "react-icons/fi";
+// import { CSVReader, CSVDownloader } from "react-papaparse";
 
 import useAsync from "../hooks/useAsync";
 import useFilter from "../hooks/useFilter";
@@ -21,13 +23,13 @@ import useFilter from "../hooks/useFilter";
 import NotFound from "../components/table/NotFound";
 import Loading from "../components/preloader/Loading";
 import ProductServices from "../services/ProductServices";
-import PageTitle from "../components/Typography/PageTitle";
+// import PageTitle from "../components/Typography/PageTitle";
 import { SidebarContext } from "../context/SidebarContext";
 import ProductTable from "../components/product/ProductTable";
-import SelectCategory from "../components/form/SelectCategory";
+// import SelectCategory from "../components/form/SelectCategory";
 import MainDrawer from "../components/drawer/MainDrawer";
 import ProductDrawer from "../components/drawer/ProductDrawer";
-import { FaFilterCircleXmark } from "react-icons/fa6";
+// import { FaFilterCircleXmark } from "react-icons/fa6";
 
 const Products = () => {
   const {
@@ -35,13 +37,13 @@ const Products = () => {
     currentPage,
     handleChangePage,
     searchText,
-    setSearchText,
+    // setSearchText,
     category,
-    setCategory,
-    searchRef,
+    // setCategory,
+    // searchRef,
     handleSubmitForAll,
     sortedField,
-    setSortedField,
+    // setSortedField,
     limitData,
   } = useContext(SidebarContext);
 
@@ -68,7 +70,8 @@ const Products = () => {
   //   setSearchText(null);
   // };
 
-  const { serviceData, handleOnDrop, handleUploadProducts } = useFilter(
+  // const { serviceData, handleOnDrop, handleUploadProducts } = useFilter(
+  const { serviceData } = useFilter(
     data?.products
   );
 
@@ -128,7 +131,7 @@ const Products = () => {
             <h1 className="text-slate-600 text-2xl font-bold">Products</h1>
 
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
-              <Button onClick={toggleDrawer} className="base-bg-color w-full rounded-md h-12">
+              <Button onClick={toggleDrawer} className=" w-full rounded-md h-12">
                 <span className="mr-3">
                   <FiPlus />
                 </span>

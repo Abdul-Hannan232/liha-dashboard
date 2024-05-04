@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import * as dayjs from 'dayjs';
+// import { Link } from 'react-router-dom';
+// import * as dayjs from 'dayjs';
 import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
 import useToggleDrawer from "../../hooks/useToggleDrawer";
-
-
 import Status from '../table/Status';
 // import { FiZoomIn } from 'react-icons/fi'; 
 // import Tooltip from '../tooltip/Tooltip';
@@ -12,15 +10,12 @@ import Status from '../table/Status';
 import EditDeleteButton from '../table/EditDeleteButton';
 
 const OrderTable = ({ orders }) => { 
-  const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+  const { handleModalOpen, handleUpdate } = useToggleDrawer();
+  // const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
   return (
-    <>
       <TableBody>
-        {/* {console.log(orders)} */}
-        {/* {JSON.parse(orders)?.map((order, i) => ( */}
         {orders?.map((order, i) => (
-        
           <TableRow key={i + 1}>
               {/* {console.log(order)} */}
             <TableCell>
@@ -94,7 +89,7 @@ const OrderTable = ({ orders }) => {
           </TableRow>
         ))}
       </TableBody>
-    </>
+   
   );
 };
 

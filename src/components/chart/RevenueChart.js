@@ -4,7 +4,7 @@ import OrderServices from '../../services/OrderServices';
 
 const RevenueChart = () => {
   const { data } = useAsync(OrderServices.getBestSellerProductChart);
-console.log('fffffffff', data);
+// console.log('fffffffff', data);
   const PieOption = {
     data: {
       datasets: [

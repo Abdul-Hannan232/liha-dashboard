@@ -1,13 +1,13 @@
 import {
-  FiGrid,
+  // FiGrid,
   FiShoppingBag,
-  FiUsers,
-  FiUser,
+  // FiUsers,
+  // FiUser,
   FiCompass,
-  FiGift,
+  // FiGift,
   FiList,
-  FiSettings,
-  FiSlack,
+  // FiSettings,
+  // FiSlack,
 } from 'react-icons/fi';
 /**
  * ⚠ These are used just to render the Sidebar!

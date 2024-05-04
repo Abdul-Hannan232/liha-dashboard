@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext } from 'react';
+// import React, { useContext, useEffect, useRef, useState } from 'react';
 // import { Link } from 'react-router-dom';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 // import { Avatar, Badge, WindmillContext } from '@windmill/react-ui';
 // import { Scrollbars } from 'react-custom-scrollbars-2';
 import {
@@ -14,12 +15,12 @@ import {
   // IoClose,
 } from 'react-icons/io5';
 
-import { AdminContext } from '../../context/AdminContext';
+// import { AdminContext } from '../../context/AdminContext';
 import { SidebarContext } from '../../context/SidebarContext';
 
 const Header = () => {
   const { toggleSidebar } = useContext(SidebarContext);
-  const { state, dispatch } = useContext(AdminContext);
+  // const { state, dispatch } = useContext(AdminContext);
   // const { adminInfo } = state;
   // const { mode, toggleMode } = useContext(WindmillContext);
   // const [profileOpen, setProfileOpen] = useState(false);
