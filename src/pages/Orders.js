@@ -158,6 +158,7 @@ const Orders = () => {
                 <TableCell>PRICE</TableCell>
                 <TableCell>CUSTOMER EMAIL</TableCell>
                 <TableCell className="text-center">STATUS</TableCell>
+                <TableCell className="text-center">SET STATUS</TableCell>
                 <TableCell className="text-center">Actions</TableCell>
               </tr>
             </TableHeader>

@@ -80,6 +80,7 @@ const ProductTable = ({ products }) => {
             {/* <TableCell>
               <span className="text-sm">{product.quantity}</span>
             </TableCell> */}
+            
             {/* <TableCell>
               {product.quantity > 0 ? (
                 <Badge type="success">Selling</Badge>

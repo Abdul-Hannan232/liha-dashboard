@@ -15,8 +15,10 @@ import DrawerButton from '../form/DrawerButton';
 // import ChildrenCategory from '../category/ChildrenCategory';
 // import ParentCategory from '../category/ParentCategory';
 import useProductSubmit from '../../hooks/useProductSubmit';
+import faqData from '../../utils/faq';
 
-const FaqDrawer = ({ id }) => {
+
+const FaqDrawer = ({ id }) => { 
   const {
     register,
     handleSubmit,
@@ -28,6 +30,9 @@ const FaqDrawer = ({ id }) => {
     // tag,
     // setTag,
   } = useProductSubmit(id);
+
+  const data = faqData.find((f) => f.id === id);
+
 
   return (
     <>

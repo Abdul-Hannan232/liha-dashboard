@@ -1,5 +1,5 @@
 import {
-  // FiGrid,
+  FiGrid,
   FiShoppingBag,
   // FiUsers,
   // FiUser,
@@ -17,11 +17,11 @@ import {
  * `routes/index.js`
  */
 const sidebar = [
-  // {
-  //   path: '/dashboard', // the url
-  //   icon: FiGrid, // icon
-  //   name: 'Dashboard', // name that appear in Sidebar
-  // },
+  {
+    path: '/dashboard', // the url
+    icon: FiGrid, // icon
+    name: 'Dashboard', // name that appear in Sidebar
+  },
  
   {
     path: '/category',

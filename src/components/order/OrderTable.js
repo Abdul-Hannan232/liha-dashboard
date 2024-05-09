@@ -6,7 +6,7 @@ import useToggleDrawer from "../../hooks/useToggleDrawer";
 import Status from '../table/Status';
 // import { FiZoomIn } from 'react-icons/fi'; 
 // import Tooltip from '../tooltip/Tooltip';
-// import SelectStatus from '../form/SelectStatus';
+import SelectStatus from '../form/SelectStatus';
 import EditDeleteButton from '../table/EditDeleteButton';
 
 const OrderTable = ({ orders }) => { 
@@ -60,10 +60,9 @@ const OrderTable = ({ orders }) => {
               </span>{' '}
             </TableCell> */}
             
-            {/* <TableCell className="text-center"> */}
-              {/* <SelectStatus id={order._id} order={order} /> */}
-              {/* <SelectStatus id={order.id} order={order} />
-            </TableCell> */}
+            <TableCell className="text-center"> 
+              <SelectStatus id={order.id} order={order} />
+            </TableCell>
             {/* <TableCell className="text-right flex justify-end">
               <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
                 {' '}
@@ -76,7 +75,7 @@ const OrderTable = ({ orders }) => {
                   />
                 </Link>
               </div>
-            </TableCell> */}
+            </TableCell> */} 
             <TableCell>
               <EditDeleteButton
                 id={order.id}

@@ -23,6 +23,7 @@ import { SidebarContext } from "../context/SidebarContext";
 import MainDrawer from "../components/drawer/MainDrawer";
 import ProductDrawer from "../components/drawer/ProductDrawer";
 import FaqTable from "../components/faq/FaqTable";
+import faqData from "../utils/faq";
 
 const Faq = () => {
   const {
@@ -52,13 +53,15 @@ const Faq = () => {
     []
   );
 
+
+
   // function to clear filters
 
-  const { serviceData } = useFilter(data?.products);
-
+  // const { serviceData } = useFilter(data?.products);
+  const { serviceData } = useFilter(faqData);
+// console.log("serviceData",serviceData);
   return (
     <>
-      {/* <PageTitle>Products</PageTitle> */}
       <MainDrawer>
         <ProductDrawer />
       </MainDrawer>
@@ -97,14 +100,17 @@ const Faq = () => {
               <tr>
                 <TableCell>Question</TableCell>
                 <TableCell>Answer</TableCell>
+                <TableCell>View</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>
-            <FaqTable faqs={data?.products} />
+            <FaqTable faqs={faqData} />
+            {/* <FaqTable faqs={data?.products} /> */}
           </Table>
           <TableFooter>
             <Pagination
-              totalResults={data?.totalDoc}
+              totalResults={faqData.length}
+              // totalResults={data?.totalDoc}
               resultsPerPage={15}
               onChange={handleChangePage}
               label="Product Page Navigation"

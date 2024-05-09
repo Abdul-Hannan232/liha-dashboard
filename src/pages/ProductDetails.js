@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { handleUpdate } = useToggleDrawer();
   const { data, loading } = useAsync(() => ProductServices.getProductById(id));
-  console.log("🚀 ~ ProductDetails ~ data:", data)
+  // console.log("🚀 ~ ProductDetails ~ data:", data)
 
   return (
     <>

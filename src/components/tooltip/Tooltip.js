@@ -7,11 +7,11 @@ const Tooltip = ({ id, Icon, title, bgColor }) => {
       <p data-tip data-for={id}>
         <Icon />
       </p>
-      <ReactTooltip id={id} backgroundColor={bgColor}>
+      <ReactTooltip id={id} backgroundColor="#68CC58">
         <span className="text-sm font-medium">{title}</span>
       </ReactTooltip>
     </>
   );
 };
 
-export default Tooltip;
+export default Tooltip; 

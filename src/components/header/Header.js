@@ -64,7 +64,7 @@ const Header = () => {
             onClick={toggleSidebar}
             aria-label="Menu"
           >
-            <IoMenu className="w-6 h-6" aria-hidden="true" />
+            <IoMenu className="w-6 h-6 base-color hover:text-gray-500" aria-hidden="true" />
           </button>
           <span></span>
 
