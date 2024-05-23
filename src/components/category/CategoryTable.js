@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TableBody, TableRow, TableCell, Avatar } from "@windmill/react-ui";
 
 import MainModal from "../modal/MainModal";
@@ -10,9 +10,9 @@ import EditDeleteButton from "../table/EditDeleteButton";
 
 const CategoryTable = ({ categories }) => {
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
-
-  // console.log('serviceId', serviceId);
-  return ( 
+  // const [defaultVal , setDefaultVal] = useState('')
+  // console.log('defaultVal------------ ', defaultVal);
+  return (
     <>
       <MainModal id={serviceId} title={title} />
       <MainDrawer>
@@ -27,11 +27,12 @@ const CategoryTable = ({ categories }) => {
               {parent?.id}
             </TableCell> */}
             <TableCell className="font-semibold uppercase text-xs">
-             Category {parent?.id}
+              {/* Category {parent?.id} */}
+              {parent.name}
             </TableCell>
             <TableCell>
               <Avatar
-              size="large"
+                size="large"
                 className="hidden mr-3 md:block bg-gray-50 p-1"
                 src={parent.icon}
                 alt={parent.parent}
@@ -50,7 +51,7 @@ const CategoryTable = ({ categories }) => {
             <TableCell className="text-sm ">
               {parent.children?.length ?? 0}
             </TableCell>
-            
+
             {/* <TableCell className="text-sm">{parent.type}</TableCell> */}
             <TableCell>
               <ShowHideButton id={parent.id} status={parent.status} />

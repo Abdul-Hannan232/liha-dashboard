@@ -14,7 +14,7 @@ const ProductServices = {
   getStockOutProducts() {
     return requests.get('/products/stock-out');
   },
-
+ 
   getProductById(id) {
     return requests.post(`/products/${id}`);
   },

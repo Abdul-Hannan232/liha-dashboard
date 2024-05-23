@@ -8,19 +8,24 @@ import Status from '../table/Status';
 // import Tooltip from '../tooltip/Tooltip';
 import SelectStatus from '../form/SelectStatus';
 import EditDeleteButton from '../table/EditDeleteButton';
+import MainModal from '../modal/MainModal';
 
 const OrderTable = ({ orders }) => { 
-  const { handleModalOpen, handleUpdate } = useToggleDrawer();
-  // const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+  const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
   return (
+<>
+    <MainModal id={serviceId} title={title} />
       <TableBody>
         {orders?.map((order, i) => (
-          <TableRow key={i + 1}>
+             
+          <TableRow key={order.id}>
+            {  console.log(JSON.parse(order?.cart))}     
+          {/* <TableRow key={i + 1}> */}
               {/* {console.log(order)} */}
             <TableCell>
-              {/* <span className="font-semibold uppercase text-xs">{i + 1}</span> */}
-              <span className="font-semibold uppercase text-xs">#uiagseu2</span>
+              {/* <span className="font-semibold uppercase text-xs">#uiagseu2</span> */}
+              <span className="font-semibold uppercase text-xs">#on{order.invoice}</span>
             </TableCell>
             <TableCell>
               <span className="text-sm">
@@ -79,7 +84,7 @@ const OrderTable = ({ orders }) => {
             <TableCell>
               <EditDeleteButton
                 id={order.id}
-                title="delete"
+                title={order.id}
                 handleUpdate={handleUpdate}
                 handleModalOpen={handleModalOpen}
                 action="orderAction"
@@ -88,7 +93,7 @@ const OrderTable = ({ orders }) => {
           </TableRow>
         ))}
       </TableBody>
-   
+      </>
   );
 };
 

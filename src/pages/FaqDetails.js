@@ -13,31 +13,34 @@ import FaqDrawer from "../components/drawer/FaqDrawer";
 import faqData from "../utils/faq";
 import { FiEdit, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import FaqServices from "../services/FaqServices";
 
 const FaqDetails = () => {
   const { id } = useParams();
-//   const { handleUpdate } = useToggleDrawer();
-  //   const { data, loading } = useAsync(() => ProductServices.getProductById(id));
-  const { loading } = useAsync(() => ProductServices.getProductById(id));
+  const { data, loading } = useAsync(() => FaqServices.getFaqById(id));
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
-  const data = faqData.find((f) => f.id === id);
-  //   console.log("🚀 ~ ProductDetails ~ data:", data)
+  // const data = faqData.find((f) => f.id === id);
+  //   console.log("🚀 ~ FaqDetails ~ data:", data)
 
   return (
     <>
-      <div className="relative flex flex-col justify-center items-center pt-24" style={{minHeight:"86vh"}}>
+      <div
+        className="relative flex flex-col justify-center items-center pt-24"
+        style={{ minHeight: "86vh" }}
+      >
         <MainDrawer>
           <FaqDrawer id={id} />
         </MainDrawer>
 
-<Link  to="/faq">
-        <button
-        // onClick={toggleDrawer}
-        className="absolute focus:outline-none z-50 base-color  hover:text-gray-700 transition-colors duration-150 bg-white shadow-md mr-6 mt-6 right-0 top-0 left-auto w-10 h-10 rounded-full block text-center"
-      >
-        <FiX className="mx-auto" />
-      </button></Link>
+        <Link to="/faq">
+          <button
+            // onClick={toggleDrawer}
+            className="absolute focus:outline-none z-50 base-color  hover:text-gray-700 transition-colors duration-150 bg-white shadow-md mr-6 mt-6 right-0 top-0 left-auto w-10 h-10 rounded-full block text-center"
+          >
+            <FiX className="mx-auto" />
+          </button>
+        </Link>
 
         <h3 className="text-4xl font-bold sm:w-5/6"> Faq {id}</h3>
 
@@ -50,14 +53,14 @@ const FaqDetails = () => {
             <h3 className="text-2xl font-bold py-10"> {data?.question}</h3>
             <p className="">{data?.answer}</p>
             <Button
-                onClick={() => handleUpdate(id)}
-                className=" w-40 my-10 rounded-md h-12"
-              >
-                <span className="mr-3">
-                  <FiEdit />
-                </span>
-                Edit Faq
-              </Button>
+              onClick={() => handleUpdate(id)}
+              className=" w-40 my-10 rounded-md h-12"
+            >
+              <span className="mr-3">
+                <FiEdit />
+              </span>
+              Edit Faq
+            </Button>
           </div>
         )}
       </div>

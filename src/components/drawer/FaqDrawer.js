@@ -14,11 +14,12 @@ import DrawerButton from '../form/DrawerButton';
 // import Uploader from '../image-uploader/Uploader';
 // import ChildrenCategory from '../category/ChildrenCategory';
 // import ParentCategory from '../category/ParentCategory';
-import useProductSubmit from '../../hooks/useProductSubmit';
 import faqData from '../../utils/faq';
+import useFaqSubmit from './../../hooks/useFaqSubmit';
 
 
 const FaqDrawer = ({ id }) => { 
+
   const {
     register,
     handleSubmit,
@@ -29,7 +30,7 @@ const FaqDrawer = ({ id }) => {
     // setImageUrl,
     // tag,
     // setTag,
-  } = useProductSubmit(id);
+  } = useFaqSubmit(id);
 
   const data = faqData.find((f) => f.id === id);
 
@@ -61,7 +62,7 @@ const FaqDrawer = ({ id }) => {
                 <InputArea
                   register={register}
                   label="Question"
-                  name="ques"
+                  name="question"
                   type="text"
                   placeholder="Enter main heading"
                  
@@ -78,17 +79,16 @@ const FaqDrawer = ({ id }) => {
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Answer" />
               <div className="col-span-8 sm:col-span-4 relative">
-                <InputValue
+              <InputArea
                   register={register}
-                  maxValue={2000}
-                  minValue={1}
                   label="Answer"
-                  name="ans"
-                  type="string"
+                  name="answer"
+                  type="text"
                   placeholder="Enter Description"
+                 
                 />
                  <img src={add} className='custom-icon' alt='faq' />
-                <Error errorName={errors.originalPrice} />
+                <Error errorName={errors.title} />
               </div>
             </div>
 

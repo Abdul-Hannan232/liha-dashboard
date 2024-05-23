@@ -12,12 +12,15 @@ import CategoryServices from '../../services/CategoryServices';
 import { SidebarContext } from '../../context/SidebarContext';
 import { notifySuccess, notifyError } from '../../utils/toast';
 import useToggleDrawer from '../../hooks/useToggleDrawer';
+import FaqServices from '../../services/FaqServices';
+import OrderServices from '../../services/OrderServices';
 
 const MainModal = ({ id, title }) => {
   const { isModalOpen, closeModal, setIsUpdate } = useContext(SidebarContext);
   const { setServiceId } = useToggleDrawer();
   const location = useLocation();
 
+  // console.log('id////////////// ', id);
   const handleDelete = () => {
     if (location.pathname === '/products') {
       ProductServices.deleteProduct(id)
@@ -40,6 +43,29 @@ const MainModal = ({ id, title }) => {
       closeModal();
       setServiceId();
     }
+
+    if (location.pathname === '/faq') {
+      FaqServices.deleteFaq(id)
+        .then((res) => {
+          setIsUpdate(true);
+          notifySuccess(res.message);
+        })
+        .catch((err) => notifyError(err.message));
+      closeModal();
+      setServiceId();
+    }
+    if (location.pathname === '/orders') {
+      OrderServices.deleteOrder(id)
+        .then((res) => {
+          setIsUpdate(true);
+          notifySuccess(res.message);
+        })
+        .catch((err) => notifyError(err.message));
+      closeModal();
+      setServiceId();
+    }
+
+
     if (location.pathname === '/customers') {
       UserServices.deleteUser(id)
         .then((res) => {

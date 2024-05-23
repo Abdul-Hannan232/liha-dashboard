@@ -1,18 +1,24 @@
-import React from "react";
+// import React, { useEffect, useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
-// import ReactTagInput from "@pathofdev/react-tag-input";
-
 import Error from "../form/Error";
 import Title from "../form/Title";
 import InputArea from "../form/InputArea";
 import LabelArea from "../form/LabelArea";
-// import SelectOption from "../form/SelectOption";
 import DrawerButton from "../form/DrawerButton";
 import Uploader from "../image-uploader/Uploader";
 import useCategorySubmit from "../../hooks/useCategorySubmit";
+// import CategoryServices from "../../services/CategoryServices";
 
 const CategoryDrawer = ({ id }) => {
-  // console.log('mmmmmmmmmmm', id);
+  // const [data, setData]= useState('');
+
+  // useEffect(()=>{
+  //   CategoryServices.getCategoryById(id).then((res) => {
+  //     setData(res);
+  //  })
+  //  .catch((err) => console.log(err.message));
+  // },[id])
+  
   const {
     register,
     handleSubmit,
@@ -20,10 +26,8 @@ const CategoryDrawer = ({ id }) => {
     errors,
     imageUrl,
     setImageUrl,
-    children,
-    // setChildren,
   } = useCategorySubmit(id);
-  console.log(children);
+
   return (
     <>
       <div className="w-full relative p-6  border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
@@ -54,7 +58,9 @@ const CategoryDrawer = ({ id }) => {
               <InputArea
                   register={register}
                   label="Category title"
-                  name="parent"
+                  name="name"
+                  // defaultValue={id && data.name ? data.name : ""}
+                  defaultValue=''
                   type="text"
                   placeholder="Enater name"
                 />
@@ -62,35 +68,6 @@ const CategoryDrawer = ({ id }) => {
               </div>
             </div>
 
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Parent Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputArea
-                  register={register}
-                  label="Category title"
-                  name="parent"
-                  type="text"
-                  placeholder="Category title"
-                />
-                <Error errorName={errors.parent} />
-              </div>
-            </div> */}
-
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Child Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <ReactTagInput
-                  placeholder="Child category (Write then press enter to add new child category)"
-                  tags={
-                    Array.isArray(children) ? children : JSON.parse(children)
-                  }
-                  onChange={(child) => {
-                    console.log(child);
-                    setChildren(child);
-                  }}
-                />
-              </div>
-            </div> */}
           </div>
 
           <DrawerButton id={id} title="Category" />

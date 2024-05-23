@@ -24,31 +24,32 @@ const useProductSubmit = (id) => {
       notifyError('Image is required!');
       return;
     }
-    if (data.originalPrice < data.salePrice) {
-      notifyError('SalePrice must be less then or equal of product price!');
-      return;
-    }
-
+    // if (data.originalPrice < data.salePrice) {
+    //   notifyError('SalePrice must be less then or equal of product price!');
+    //   return;
+    // }
     const productData = {
-      sku: data.sku,
+      // sku: data.sku,
       title: data.title,
-      slug: data.slug
-        ? data.slug
-        : data.title.toLowerCase().replace('&', '').split(' ').join('-'),
+      // slug: data.slug
+      //   ? data.slug
+      //   : data.title.toLowerCase().replace('&', '').split(' ').join('-'),
       description: data.description,
-      parent: data.parent,
-      children: data.children,
-      type: data.type,
-      unit: data.unit,
-      quantity: data.quantity,
-      originalPrice: data.originalPrice,
-      price: data.salePrice ? data.salePrice : data.originalPrice,
-      discount:
-        data.salePrice > 0 &&
-        ((data.originalPrice - data.salePrice) / data.originalPrice) * 100,
+      // parent: data.parent,
+      // children: data.children,
+      // type: data.type,
+      // unit: data.unit,
+      // quantity: data.quantity,
+      // originalPrice: data.originalPrice,
+      price:  data.originalPrice,
+      // price: data.salePrice ? data.salePrice : data.originalPrice,
+      // discount:
+      //   data.salePrice > 0 &&
+      //   ((data.originalPrice - data.salePrice) / data.originalPrice) * 100,
       image: imageUrl,
       tag: JSON.stringify(tag),
     };
+    // console.log(productData);
 
     if (id) {
       ProductServices.updateProduct(id, productData)

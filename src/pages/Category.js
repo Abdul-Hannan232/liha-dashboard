@@ -18,40 +18,26 @@ import useFilter from "../hooks/useFilter";
 import NotFound from "../components/table/NotFound";
 import Loading from "../components/preloader/Loading";
 import { SidebarContext } from "../context/SidebarContext";
-// import PageTitle from "../components/Typography/PageTitle";
 import CategoryServices from "../services/CategoryServices";
 import CategoryTable from "../components/category/CategoryTable";
-// import SelectCategory from "../components/form/SelectCategory";
 import MainDrawer from "../components/drawer/MainDrawer";
-import CategoryDrawer from "../components/drawer/CategoryDrawer";
-// import { FaFilterCircleXmark } from "react-icons/fa6";
-// import { category } from "../data/category";
+import CategoryDrawer from "../components/drawer/CategoryDrawer"; 
 
 const Category = () => {
   const { toggleDrawer } = useContext(SidebarContext);
   const { data, loading } = useAsync(CategoryServices.getAllCategory);
   const {
-    // categoryRef,
-    // setFilter,
     handleChangePage,
     totalResults,
     resultsPerPage,
     dataTable,
     serviceData,
-    // categoryType,
-    // setCategoryType,
     handleSubmitCategory,
   } = useFilter(data);
 
-  // const handleClearFilters = () => {
-  //   setCategoryType("");
-  //   setFilter("");
-  // };
 
   return (
     <>
-      {/* <PageTitle>Category</PageTitle> */}
-
       <MainDrawer>
         <CategoryDrawer />
       </MainDrawer>
@@ -60,36 +46,9 @@ const Category = () => {
         <CardBody>
           <form
             onSubmit={handleSubmitCategory}
-            // className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
             className="py-3 justify-between grid gap-4 lg:gap-6 xl:gap-6 md:flex xl:flex"
           >
             <h1 className="text-slate-600 text-2xl font-bold">Categories</h1>
-
-            {/* <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-              <Input
-                ref={categoryRef}
-                value={categoryType}
-                onChange={(e)=>setCategoryType(e.target.value)}
-                className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
-                type="search"
-                name="search"
-                placeholder="Search by category type"
-              />
-              <button
-                type="submit"
-                className="absolute right-0 top-0 mt-5 mr-1"
-              ></button>
-            </div> */}
-            {/* <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-              <SelectCategory setCategory={setFilter} />
-            </div> */}
-
-            {/* <div
-              onClick={handleClearFilters}
-              className={` cursor-pointer flex items-center justify-center p-3 rounded-full h-12 w-12 text-center mr-4 text-lg text-blue-600 dark:text-blue-100 bg-blue-100 dark:bg-blue-500`}
-            >
-              <FaFilterCircleXmark />
-            </div> */}
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
               <Button
                 type="button"
@@ -119,16 +78,8 @@ const Category = () => {
                 <TableCell>ENABLE</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
              
-                {/* <TableCell>ID</TableCell>
-                <TableCell>Icon</TableCell>
-                <TableCell>Parent</TableCell>
-                <TableCell>Children</TableCell>
-                <TableCell>Type</TableCell>
-                <TableCell className="text-center">Published</TableCell>
-                <TableCell className="text-right">Actions</TableCell> */}
               </tr>
             </TableHeader>
-            {/* <CategoryTable categories={category} /> */}
             <CategoryTable categories={dataTable} />
           </Table>
           <TableFooter>

@@ -11,7 +11,7 @@ import {
 
 // import Tooltip from "../tooltip/Tooltip";
 import MainModal from "../modal/MainModal";
-import MainDrawer from "../drawer/MainDrawer";
+import MainDrawer from "../drawer/MainDrawer"; 
 import ProductDrawer from "../drawer/ProductDrawer";
 import ShowHideButton from "../table/ShowHideButton";
 import EditDeleteButton from "../table/EditDeleteButton";
@@ -42,6 +42,7 @@ const ProductTable = ({ products }) => {
                 {product.id}
               </span>
             </TableCell> */}
+            
             <TableCell>
               <span className="text-xs capitalize font-semibold">
                 {" "}

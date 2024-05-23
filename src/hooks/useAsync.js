@@ -7,7 +7,7 @@ const useAsync = (asyncFunction) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const {
-    isUpdate,
+    isUpdate, 
     setIsUpdate,
     currentPage,
     category,

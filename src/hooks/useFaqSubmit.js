@@ -1,12 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { SidebarContext } from "../context/SidebarContext";
-import CategoryServices from "../services/CategoryServices";
 import { notifyError, notifySuccess } from "../utils/toast";
+import FaqServices from './../services/FaqServices';
 
-const useCategorySubmit = (id) => {
-  const [imageUrl, setImageUrl] = useState("");
-  const [children, setChildren] = useState([]);
+const useFaqSubmit = (id) => {
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
   const {
@@ -17,21 +15,13 @@ const useCategorySubmit = (id) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ name, type }) => {
-    if (!imageUrl) {
-      notifyError("Icon is required!");
-      return;
-    }
-    const categoryData = {
-      name,
-      // slug: slug,
-      // type: type,
-      icon: imageUrl,
-      // children: children,
+  const onSubmit = ({ question, answer }) => {
+    const faqData = {
+      question: question,
+      answer: answer
     };
-
     if (id) {
-      CategoryServices.updateCategory(id, categoryData)
+      FaqServices.updateFaq(id, faqData)
         .then((res) => {
           console.log(res.data);
           setIsUpdate(true);
@@ -40,8 +30,9 @@ const useCategorySubmit = (id) => {
         .catch((err) => notifyError(err.message));
       closeDrawer();
     } else {
-      CategoryServices.addCategory(categoryData)
+      FaqServices.addFaqs(faqData)
         .then((res) => {
+          // console.log(res.data);
           setIsUpdate(true);
           notifySuccess(res.message);
         })
@@ -52,29 +43,17 @@ const useCategorySubmit = (id) => {
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue("parent");
-      // setValue("slug");
-      setValue("children");
-      setValue("type");
-      setImageUrl("");
-      setChildren([]);
-      clearErrors("parent");
-      // setValue("slug");
-      clearErrors("children");
+      setValue("question");
+      setValue("answer");
       clearErrors("type");
       return;
     }
     if (id) {
-      CategoryServices.getCategoryById(id)
+      FaqServices.getFaqById(id)
         .then((res) => {
           if (res) {
-            setValue("parent", res.name);
-            // setValue("slug", res.slug);
-            // console.log('iiiiiiiiiiiiiiiiiii', res);
-            // setChildren(res.children);
-            setValue("type", res.type);
-            setValue("icon", res.icon);
-            setImageUrl(res.icon);
+            setValue("question", res.question);
+            setValue("answer", res.answer);
           }
         })
         .catch((err) => {
@@ -88,11 +67,7 @@ const useCategorySubmit = (id) => {
     handleSubmit,
     onSubmit,
     errors,
-    imageUrl,
-    setImageUrl,
-    children,
-    setChildren,
   };
 };
 
-export default useCategorySubmit;
+export default useFaqSubmit;

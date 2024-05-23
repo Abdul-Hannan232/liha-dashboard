@@ -34,8 +34,7 @@ const requests = {
 
   post: (url, body) => instance.post(url, body).then(responseBody),
 
-  put: (url, body, headers) =>
-    instance.put(url, body, headers).then(responseBody),
+  put: (url, body, headers) =>  instance.put(url, body, headers).then(responseBody),
 
   patch: (url, body) => instance.patch(url, body).then(responseBody),
 

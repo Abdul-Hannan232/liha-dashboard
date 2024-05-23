@@ -55,7 +55,7 @@ const Login = () => {
                   <InputArea
                     register={register}
                     defaultValue="1234567123"
-                    label="Password"
+                    label="Password" 
                     name="password"
                     type="password"
                     placeholder="***************"

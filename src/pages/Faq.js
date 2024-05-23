@@ -21,9 +21,10 @@ import Loading from "../components/preloader/Loading";
 import ProductServices from "../services/ProductServices";
 import { SidebarContext } from "../context/SidebarContext";
 import MainDrawer from "../components/drawer/MainDrawer";
-import ProductDrawer from "../components/drawer/ProductDrawer";
 import FaqTable from "../components/faq/FaqTable";
-import faqData from "../utils/faq";
+// import faqData from "../utils/faq";
+import FaqServices from "../services/FaqServices";
+import FaqDrawer from "../components/drawer/FaqDrawer";
 
 const Faq = () => {
   const {
@@ -41,29 +42,19 @@ const Faq = () => {
     limitData,
   } = useContext(SidebarContext);
 
-  const { data, loading } = useAsync(
-    () =>
-      ProductServices.getAllProducts({
-        page: currentPage,
-        limit: limitData,
-        category: category,
-        title: searchText,
-        price: sortedField,
-      }),
-    []
-  );
-
-
+  const { data, loading } = useAsync(FaqServices.getAllFaqs);
+      
+// console.log('-=========== ', data);
 
   // function to clear filters
 
   // const { serviceData } = useFilter(data?.products);
-  const { serviceData } = useFilter(faqData);
+  const { serviceData } = useFilter(data);
 // console.log("serviceData",serviceData);
   return (
     <>
       <MainDrawer>
-        <ProductDrawer />
+        <FaqDrawer />
       </MainDrawer>
 
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
@@ -104,21 +95,21 @@ const Faq = () => {
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>
-            <FaqTable faqs={faqData} />
+            <FaqTable faqs={data} />
             {/* <FaqTable faqs={data?.products} /> */}
           </Table>
           <TableFooter>
             <Pagination
-              totalResults={faqData.length}
+              totalResults={data.length}
               // totalResults={data?.totalDoc}
               resultsPerPage={15}
               onChange={handleChangePage}
-              label="Product Page Navigation"
+              label="Faq Page Navigation"
             />
           </TableFooter>
         </TableContainer>
       ) : (
-        <NotFound title="Product" />
+        <NotFound title="Faqs" />
       )}
     </>
   );

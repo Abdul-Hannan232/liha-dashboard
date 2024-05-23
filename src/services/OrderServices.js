@@ -6,7 +6,7 @@ const OrderServices = {
     const searchStatus = status !== null ? status : '';
     const searchDay = day !== null ? day : '';
 
-    return requests.get(
+    return requests.get( 
       `/orders?contact=${searchContact}&status=${searchStatus}&day=${searchDay}&page=${page}&limit=${limit}`,
       body,
       headers
