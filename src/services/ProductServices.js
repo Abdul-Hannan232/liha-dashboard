@@ -27,6 +27,10 @@ const ProductServices = {
     return requests.post('/products/all', body);
   },
 
+  getProductsByCategory(id) {
+    return requests.get(`/products/bycategory/${id}`);
+  },
+
   updateProduct(id, body) {
     return requests.put(`/products/${id}`, body);
   },

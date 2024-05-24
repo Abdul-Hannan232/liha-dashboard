@@ -4,7 +4,7 @@ import { SidebarContext } from '../context/SidebarContext';
 import ProductServices from '../services/ProductServices';
 import { notifyError, notifySuccess } from '../utils/toast';
 
-const useProductSubmit = (id) => {
+const useProductSubmit = (id, type) => {
   const [imageUrl, setImageUrl] = useState('');
   const [children, setChildren] = useState('');
   const [tag, setTag] = useState([]);
@@ -69,6 +69,32 @@ const useProductSubmit = (id) => {
       closeDrawer();
     }
   };
+
+
+
+  if (id && type) {
+    ProductServices.getProductsByCategory(id)
+      .then((res) => {
+        if (res) {
+          setValue('sku', res.sku);
+            setValue('title', res.title);
+            setValue('slug', res.slug);
+            setValue('description', res.description);
+            setValue('parent', res.parent);
+            setValue('children', res.children);
+            setValue('type', res.type);
+            setValue('unit', res.unit);
+            setValue('quantity', res.quantity);
+            setValue('originalPrice', res.originalPrice);
+            setValue('salePrice', res.price);
+            setTag(JSON.parse(res.tag));
+            setImageUrl(res.image);
+        }
+      })
+      .catch((err) => {
+        notifyError("There is a server error!");
+      });
+  }
 
   useEffect(() => {
     if (!isDrawerOpen) {

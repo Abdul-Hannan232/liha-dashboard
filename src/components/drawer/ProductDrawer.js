@@ -1,20 +1,23 @@
-import React from 'react';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+import React from "react";
+import { Scrollbars } from "react-custom-scrollbars-2";
 // import { Textarea, Select } from '@windmill/react-ui';
-import { Textarea } from '@windmill/react-ui';
-import ReactTagInput from '@pathofdev/react-tag-input';
+import { Select, Textarea } from "@windmill/react-ui";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
-import Title from '../form/Title';
-import Error from '../form/Error';
-import LabelArea from '../form/LabelArea';
-import InputArea from '../form/InputArea';
-import InputValue from '../form/InputValue';
+import Title from "../form/Title";
+import Error from "../form/Error";
+import LabelArea from "../form/LabelArea";
+import InputArea from "../form/InputArea";
+import InputValue from "../form/InputValue";
 // import SelectOption from '../form/SelectOption';
-import DrawerButton from '../form/DrawerButton';
-import Uploader from '../image-uploader/Uploader';
+import DrawerButton from "../form/DrawerButton";
+import Uploader from "../image-uploader/Uploader";
 // import ChildrenCategory from '../category/ChildrenCategory';
 // import ParentCategory from '../category/ParentCategory';
-import useProductSubmit from '../../hooks/useProductSubmit';
+import useProductSubmit from "../../hooks/useProductSubmit";
+import useAsync from "../../hooks/useAsync";
+import CategoryServices from "../../services/CategoryServices";
+import ParentCategory from "../category/ParentCategory";
 
 const ProductDrawer = ({ id }) => {
   const {
@@ -28,7 +31,8 @@ const ProductDrawer = ({ id }) => {
     tag,
     setTag,
   } = useProductSubmit(id);
-
+  const { data, loading } = useAsync(CategoryServices.getAllCategory);
+  console.log(data);
   return (
     <>
       <div className="w-full relative p-6 border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
@@ -98,25 +102,31 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div> */}
 
-
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Parent Category" />
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Category" />
               <div className="col-span-8 sm:col-span-4">
                 <Select
                   className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="parent"
-                  {...register('parent', {
-                    required: 'Product parent category is required!',
+                  name="category_id"
+                  // register={register}
+                  {...register("category_id", {
+                    required: "Product parent category is required!",
                   })}
                 >
                   <option value="" defaultValue hidden>
-                    Select parent category
+                    Select category
                   </option>
-                  <ParentCategory />
+                  {/* <ParentCategory  /> */}
+
+                  {data?.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
                 </Select>
                 <Error errorName={errors.parent} />
               </div>
-            </div> */}
+            </div>
 
             {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Child Category" />
@@ -217,11 +227,11 @@ const ProductDrawer = ({ id }) => {
               <div className="col-span-8 sm:col-span-4">
                 <Textarea
                   className="border text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
-                  {...register('description', {
-                    required: 'Description is required!',
+                  {...register("description", {
+                    required: "Description is required!",
                     minLength: {
                       value: 20,
-                      message: 'Minimum 20 character!',
+                      message: "Minimum 20 character!",
                     },
                   })}
                   name="description"
@@ -295,10 +305,8 @@ const ProductDrawer = ({ id }) => {
                   tags={tag}
                   onChange={(newTags) => setTag(newTags)}
                 />
-
-              
               </div>
-            </div> 
+            </div>
           </div>
 
           <DrawerButton id={id} />

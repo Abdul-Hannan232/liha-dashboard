@@ -1,35 +1,31 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
-// import * as dayjs from 'dayjs';
-import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
+import React from "react";
+import { TableCell, TableBody, TableRow } from "@windmill/react-ui";
 import useToggleDrawer from "../../hooks/useToggleDrawer";
-import Status from '../table/Status';
-// import { FiZoomIn } from 'react-icons/fi'; 
-// import Tooltip from '../tooltip/Tooltip';
-import SelectStatus from '../form/SelectStatus';
-import EditDeleteButton from '../table/EditDeleteButton';
-import MainModal from '../modal/MainModal';
+import Status from "../table/Status";
+import SelectStatus from "../form/SelectStatus";
+import EditDeleteButton from "../table/EditDeleteButton";
+import MainModal from "../modal/MainModal";
 
-const OrderTable = ({ orders }) => { 
+const OrderTable = ({ orders }) => {
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
   return (
-<>
-    <MainModal id={serviceId} title={title} />
+    <>
+      <MainModal id={serviceId} title={title} />
       <TableBody>
         {orders?.map((order, i) => (
-             
           <TableRow key={order.id}>
-            {  console.log(JSON.parse(order?.cart))}     
-          {/* <TableRow key={i + 1}> */}
-              {/* {console.log(order)} */}
+           
             <TableCell>
-              {/* <span className="font-semibold uppercase text-xs">#uiagseu2</span> */}
-              <span className="font-semibold uppercase text-xs">#on{order.invoice}</span>
+              <span className="font-semibold uppercase text-xs">
+                #on{order.invoice}
+              </span>
             </TableCell>
             <TableCell>
               <span className="text-sm">
-              Goat Steaks
+                {JSON.parse(order.cart).map(item => item.title).join(", ")}
+
+
                 {/* {dayjs(order.createdAt).format('MMM D, YYYY')} */}
               </span>
             </TableCell>
@@ -46,26 +42,9 @@ const OrderTable = ({ orders }) => {
               <Status status={order.status} />
             </TableCell>
 
-            {/* <TableCell>
-              <span className="text-sm">{order.address.substring(0, 25)}</span>
-            </TableCell>
-            <TableCell>
-              {' '}
-              <span className="text-sm">{order.contact}</span>{' '}
-            </TableCell>
-            <TableCell>
-              <span className="text-sm font-semibold">
-                {order.paymentMethod}
-              </span>
-            </TableCell> */}
-            {/* <TableCell>
-              {' '}
-              <span className="text-sm font-semibold">
-                ${Math.round(order.total)}.00
-              </span>{' '}
-            </TableCell> */}
-            
-            <TableCell className="text-center"> 
+           
+
+            <TableCell className="text-center">
               <SelectStatus id={order.id} order={order} />
             </TableCell>
             {/* <TableCell className="text-right flex justify-end">
@@ -80,7 +59,7 @@ const OrderTable = ({ orders }) => {
                   />
                 </Link>
               </div>
-            </TableCell> */} 
+            </TableCell> */}
             <TableCell>
               <EditDeleteButton
                 id={order.id}
@@ -93,7 +72,7 @@ const OrderTable = ({ orders }) => {
           </TableRow>
         ))}
       </TableBody>
-      </>
+    </>
   );
 };
 

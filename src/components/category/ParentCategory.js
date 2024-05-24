@@ -4,16 +4,19 @@ import useAsync from '../../hooks/useAsync';
 import CategoryServices from '../../services/CategoryServices';
 
 
-const ParentCategory = () => {
-  const { data } = useAsync(CategoryServices.getAllCategory); //   console.log(value);
+const ParentCategory = ({ register, setValue }) => {
+  const { data } = useAsync(CategoryServices.getAllCategory); 
+
+  React.useEffect(() => {
+    if (data && data.length > 0) {
+      setValue('category_id', data[0].id); // Set the value of the select element
+    }
+  }, [data, setValue]);
   return (
     <>
-       {/* {console.log('ctegory', parent)} */}
-     {data?.map((parent) => (
-     
-        <option key={`${parent.id}`} value={parent.parent}>
-        {/* <option key={`${parent._id}-${parent.parent}`} value={parent.parent}> */}
-          {parent?.parent}
+    {data?.map((category) => (
+        <option key={category.id} value={category.id}>
+          {category.name}
         </option>
       ))}
     </>

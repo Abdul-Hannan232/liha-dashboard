@@ -13,6 +13,7 @@ const CategoryServices = {
     return requests.post('/category/add', body);
   },
 
+  
   updateCategory(id, body) {
     return requests.put(`/category/${id}`, body);
   },

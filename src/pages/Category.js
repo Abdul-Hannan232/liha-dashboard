@@ -28,7 +28,7 @@ const Category = () => {
   const { data, loading } = useAsync(CategoryServices.getAllCategory);
   const {
     handleChangePage,
-    totalResults,
+    totalResults, 
     resultsPerPage,
     dataTable,
     serviceData,
