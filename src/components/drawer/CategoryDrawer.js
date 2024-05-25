@@ -7,18 +7,10 @@ import LabelArea from "../form/LabelArea";
 import DrawerButton from "../form/DrawerButton";
 import Uploader from "../image-uploader/Uploader";
 import useCategorySubmit from "../../hooks/useCategorySubmit";
-// import CategoryServices from "../../services/CategoryServices";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
 const CategoryDrawer = ({ id }) => {
-  // const [data, setData]= useState('');
 
-  // useEffect(()=>{
-  //   CategoryServices.getCategoryById(id).then((res) => {
-  //     setData(res);
-  //  })
-  //  .catch((err) => console.log(err.message));
-  // },[id])
-  
   const {
     register,
     handleSubmit,
@@ -26,6 +18,8 @@ const CategoryDrawer = ({ id }) => {
     errors,
     imageUrl,
     setImageUrl,
+    children,
+    setChildren,
   } = useCategorySubmit(id);
 
   return (
@@ -52,19 +46,34 @@ const CategoryDrawer = ({ id }) => {
                 <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
               </div>
             </div>
+
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Name" />
+              <LabelArea label="Category Name" />
               <div className="col-span-8 sm:col-span-4">
-              <InputArea
+                <InputArea
                   register={register}
                   label="Category title"
                   name="name"
-                  // defaultValue={id && data.name ? data.name : ""}
-                  defaultValue=''
+                  defaultValue=""
                   type="text"
                   placeholder="Enater name"
                 />
                 <Error errorName={errors.type} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Child Category" />
+              <div className="col-span-8 sm:col-span-4">
+                <ReactTagInput
+                  placeholder="Child category (Write then press enter to add new child category)"
+                  tags={
+                    Array.isArray(children) ? children : JSON.parse(children)
+                  }
+                  onChange={(child) => {
+                    setChildren(child);
+                  }}
+                />
               </div>
             </div>
 

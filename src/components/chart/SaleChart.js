@@ -4,32 +4,31 @@ import { Line } from 'react-chartjs-2';
 const SaleChart = ({ salesReport }) => {
   const [activeButton, setActiveButton] = useState({
     title: 'Sales',
-    color: 'green',
+    color: '#68CC58',
   });
 
   const handleClick = ({ title, color }) => {
     setActiveButton({ title, color });
   };
-  // console.log('sale report ', salesReport?.map((or) => or))
+
   const barOptions = {
     data: {
-      // labels: salesReport?.map((or) => or),
       labels: salesReport?.map((or) => or.date),
       datasets: [
         activeButton.title === 'Sales'
           ? {
             label: 'Sales',
             data: salesReport?.map((or) => or.total),
-            borderColor: '#10B981',
-            backgroundColor: '#10B981',
+            borderColor: '#68CC58',
+            backgroundColor: '#68CC58',
             borderWidth: 3,
             yAxisID: 'y',
           }
           : {
             label: 'Order',
             data: salesReport?.map((or) => or.order),
-            borderColor: '#F97316',
-            backgroundColor: '#F97316',
+            borderColor: '#68CC58',
+            backgroundColor: '#68CC58',
             borderWidth: 3,
             yAxisID: 'y',
           },
@@ -74,7 +73,7 @@ const SaleChart = ({ salesReport }) => {
           </li>
         </ul>
       </div>
-      {/* {console.log('barOptions,', barOptions)} */}
+
       <Line {...barOptions} />
     </>
   );

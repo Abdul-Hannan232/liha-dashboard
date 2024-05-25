@@ -46,30 +46,35 @@ const routes = [
     path: '/category',
     component: Category,
   },
-  // {
-  //   path: '/customers',
-  //   component: Customers,
-  // },
   {
     path: '/faq',
     component: Faq,
   },
-  {
-    path: '/customer-order/:id',
-    component: CustomerOrder,
-  },
+
   {
     path: '/faq/:id',
     component: FaqDetails,
   },
-  // {
-  //   path: '/our-staff',
-  //   component: Staff,
-  // },
+
   {
     path: '/orders',
     component: Orders,
   },
+
+
+  // {
+  //   path: '/customers',
+  //   component: Customers,
+  // },
+  
+  // {
+  //   path: '/customer-order/:id',
+  //   component: CustomerOrder,
+  // },
+  // {
+  //   path: '/our-staff',
+  //   component: Staff,
+  // },
   // {
   //   path: '/order/:id',
   //   component: OrderInvoice,

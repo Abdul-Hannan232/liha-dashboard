@@ -88,7 +88,7 @@ const Dashboard = () => {
           title="Total Order"
           Icon={ImCreditCard}
           price={data?.totalAmount ? data?.totalAmount : 0}
-          className="text-white dark:text-green-100 bg-green-500"
+          className="text-white dark:text-green-100 bg-color"
         />
       </div>
 
@@ -99,7 +99,7 @@ const Dashboard = () => {
           quantity={data?.totalOrder}
           className="text-orange-600 dark:text-orange-100 bg-orange-100 dark:bg-orange-500"
         />
-        <CardItem
+         <CardItem
           title="Order Pending"
           Icon={FiRefreshCw}
           quantity={data?.totalPendingOrder}
@@ -119,7 +119,7 @@ const Dashboard = () => {
           Icon={FiCheck}
           quantity={data?.totalDeliveredOrder}
           className="text-green-600 dark:text-green-100 bg-green-100 dark:bg-green-500"
-        />
+        /> 
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 my-8">

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Modal, ModalBody, ModalFooter, Button , ModalHeader} from '@windmill/react-ui';
-// import { FiTrash2 } from 'react-icons/fi';
 import { FiX, FiTrash2 } from 'react-icons/fi';
 
 import UserServices from '../../services/UserServices';
@@ -20,7 +19,6 @@ const MainModal = ({ id, title }) => {
   const { setServiceId } = useToggleDrawer();
   const location = useLocation();
 
-  // console.log('id////////////// ', id);
   const handleDelete = () => {
     if (location.pathname === '/products') {
       ProductServices.deleteProduct(id)
@@ -66,16 +64,16 @@ const MainModal = ({ id, title }) => {
     }
 
 
-    if (location.pathname === '/customers') {
-      UserServices.deleteUser(id)
-        .then((res) => {
-          setIsUpdate(true);
-          notifySuccess(res.message);
-        })
-        .catch((err) => notifyError(err.message));
-      closeModal();
-      setServiceId();
-    }
+    // if (location.pathname === '/customers') {
+    //   UserServices.deleteUser(id)
+    //     .then((res) => {
+    //       setIsUpdate(true);
+    //       notifySuccess(res.message);
+    //     })
+    //     .catch((err) => notifyError(err.message));
+    //   closeModal();
+    //   setServiceId();
+    // }
 
     // if (location.pathname === '/coupons') {
     //   CouponServices.deleteCoupon(id)
@@ -87,16 +85,16 @@ const MainModal = ({ id, title }) => {
     //   closeModal();
     //   setServiceId();
     // }
-    if (location.pathname === '/our-staff') {
-      AdminServices.deleteStaff(id)
-        .then((res) => {
-          setIsUpdate(true);
-          notifySuccess(res.message);
-        })
-        .catch((err) => notifyError(err.message));
-      closeModal();
-      setServiceId();
-    }
+    // if (location.pathname === '/our-staff') {
+    //   AdminServices.deleteStaff(id)
+    //     .then((res) => {
+    //       setIsUpdate(true);
+    //       notifySuccess(res.message);
+    //     })
+    //     .catch((err) => notifyError(err.message));
+    //   closeModal();
+    //   setServiceId();
+    // }
   };
 
   return (

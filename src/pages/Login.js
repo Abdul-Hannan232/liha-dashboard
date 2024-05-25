@@ -27,12 +27,7 @@ const Login = () => {
                 src={ImageLight}
                 alt="Office"
               />
-              {/* <img
-                aria-hidden="true"
-                className="hidden object-cover w-full h-full dark:block"
-                src={ImageDark}
-                alt="Office"
-              /> */}
+             
             </div>
             <main className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
               <div className="w-full">
@@ -65,30 +60,13 @@ const Login = () => {
                   <Button
                     disabled={loading}
                     type="submit"
-                    // className="mt-4 h-12 w-full text-custom-text-color hover:bg-custom-hover-color"
                     className="mt-4 h-12 w-full base-bg-color"
-                    // style={{ backgroundColor: "#68CC58" }}
-                    // onMouseEnter={(e) => (e.target.style.backgroundColor = "#4FAA41")}
-                    // onMouseLeave={(e) => (e.target.style.backgroundColor = "#68CC58")}
                     to="/dashboard"
                   >
                     Log in
                   </Button>
                   <hr className="my-10" />
-                  {/* <button
-                    disabled
-                    className="text-sm inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center rounded-md focus:outline-none text-gray-700 bg-gray-100 shadow-sm my-2 md:px-2 lg:px-3 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-blue-600 h-11 md:h-12 w-full mr-2"
-                  >
-                    <ImFacebook className="w-4 h-4 mr-2" />{' '}
-                    <span className="ml-2">Login With Facebook</span>
-                  </button>
-                  <button
-                    disabled
-                    className="text-sm inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-serif text-center justify-center rounded-md focus:outline-none text-gray-700 bg-gray-100 shadow-sm my-2  md:px-2 lg:px-3 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-red-500 h-11 md:h-12 w-full"
-                  >
-                    <ImGoogle className="w-4 h-4 mr-2" />{' '}
-                    <span className="ml-2">Login With Google</span>
-                  </button> */}
+                 
                 </form>
 
                 <p className="mt-4">
@@ -100,14 +78,7 @@ const Login = () => {
                     Forgot your password?
                   </Link>
                 </p>
-                {/* <p className="mt-1">
-                  <Link
-                    className="text-sm font-medium text-green-500 dark:text-green-400 hover:underline"
-                    to="/signup"
-                  >
-                    Create account
-                  </Link>
-                </p> */}
+                
               </div>
             </main>
           </div>

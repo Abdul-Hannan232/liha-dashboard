@@ -1,12 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { SidebarContext } from '../context/SidebarContext';
-import ProductServices from '../services/ProductServices';
-import { notifyError, notifySuccess } from '../utils/toast';
+import { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { SidebarContext } from "../context/SidebarContext";
+import ProductServices from "../services/ProductServices";
+import { notifyError, notifySuccess } from "../utils/toast";
+import useAsync from "./useAsync";
+import CategoryServices from "../services/CategoryServices";
 
 const useProductSubmit = (id, type) => {
-  const [imageUrl, setImageUrl] = useState('');
-  const [children, setChildren] = useState('');
+  const { data, loading } = useAsync(CategoryServices.getAllCategory);
+
+  const [imageUrl, setImageUrl] = useState("");
+  const [children, setChildren] = useState("");
   const [tag, setTag] = useState([]);
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
@@ -19,35 +23,29 @@ const useProductSubmit = (id, type) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (formData) => {
+
+    const result = data.find((parent) =>
+      formData?.parent?.toLowerCase() === parent.name.toLowerCase()
+       
+    );
+
+    console.log('result ', result);
+
     if (!imageUrl) {
-      notifyError('Image is required!');
+      notifyError("Image is required!");
       return;
     }
-    // if (data.originalPrice < data.salePrice) {
-    //   notifyError('SalePrice must be less then or equal of product price!');
-    //   return;
-    // }
+   
     const productData = {
-      // sku: data.sku,
-      title: data.title,
-      // slug: data.slug
-      //   ? data.slug
-      //   : data.title.toLowerCase().replace('&', '').split(' ').join('-'),
-      description: data.description,
-      // parent: data.parent,
-      // children: data.children,
-      // type: data.type,
-      // unit: data.unit,
-      // quantity: data.quantity,
-      // originalPrice: data.originalPrice,
-      price:  data.originalPrice,
-      // price: data.salePrice ? data.salePrice : data.originalPrice,
-      // discount:
-      //   data.salePrice > 0 &&
-      //   ((data.originalPrice - data.salePrice) / data.originalPrice) * 100,
+      title: formData.title,
+      description: formData.description,
+      parent: formData.parent,
+      children: formData.children,
+      price: formData.originalPrice,
       image: imageUrl,
       tag: JSON.stringify(tag),
+      category_id: result.id,
     };
     // console.log(productData);
 
@@ -70,25 +68,23 @@ const useProductSubmit = (id, type) => {
     }
   };
 
-
-
   if (id && type) {
     ProductServices.getProductsByCategory(id)
       .then((res) => {
         if (res) {
-          setValue('sku', res.sku);
-            setValue('title', res.title);
-            setValue('slug', res.slug);
-            setValue('description', res.description);
-            setValue('parent', res.parent);
-            setValue('children', res.children);
-            setValue('type', res.type);
-            setValue('unit', res.unit);
-            setValue('quantity', res.quantity);
-            setValue('originalPrice', res.originalPrice);
-            setValue('salePrice', res.price);
-            setTag(JSON.parse(res.tag));
-            setImageUrl(res.image);
+          setValue("sku", res.sku);
+          setValue("title", res.title);
+          setValue("slug", res.slug);
+          setValue("description", res.description);
+          setValue("parent", res.parent);
+          setValue("children", res.children);
+          setValue("type", res.type);
+          setValue("unit", res.unit);
+          setValue("quantity", res.quantity);
+          setValue("originalPrice", res.originalPrice);
+          setValue("salePrice", res.price);
+          setTag(JSON.parse(res.tag));
+          setImageUrl(res.image);
         }
       })
       .catch((err) => {
@@ -98,33 +94,33 @@ const useProductSubmit = (id, type) => {
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue('sku');
-      setValue('title');
-      setValue('slug');
-      setValue('description');
-      setValue('parent');
-      setValue('children');
-      setValue('type');
-      setValue('unit');
-      setValue('quantity');
-      setValue('originalPrice');
-      setValue('salePrice');
-      setImageUrl('');
-      setChildren('');
+      setValue("sku");
+      setValue("title");
+      setValue("slug");
+      setValue("description");
+      setValue("parent");
+      setValue("children");
+      setValue("type");
+      setValue("unit");
+      setValue("quantity");
+      setValue("originalPrice");
+      setValue("salePrice");
+      setImageUrl("");
+      setChildren("");
       setTag([]);
-      clearErrors('sku');
-      clearErrors('title');
-      clearErrors('slug');
-      clearErrors('description');
-      clearErrors('parent');
-      clearErrors('children');
-      clearErrors('type');
-      clearErrors('unit');
-      clearErrors('quantity');
-      clearErrors('originalPrice');
-      clearErrors('salePrice');
-      clearErrors('tax1');
-      clearErrors('tax2');
+      clearErrors("sku");
+      clearErrors("title");
+      clearErrors("slug");
+      clearErrors("description");
+      clearErrors("parent");
+      clearErrors("children");
+      clearErrors("type");
+      clearErrors("unit");
+      clearErrors("quantity");
+      clearErrors("originalPrice");
+      clearErrors("salePrice");
+      clearErrors("tax1");
+      clearErrors("tax2");
       return;
     }
 
@@ -132,30 +128,30 @@ const useProductSubmit = (id, type) => {
       ProductServices.getProductById(id)
         .then((res) => {
           if (res) {
-            setValue('sku', res.sku);
-            setValue('title', res.title);
-            setValue('slug', res.slug);
-            setValue('description', res.description);
-            setValue('parent', res.parent);
-            setValue('children', res.children);
-            setValue('type', res.type);
-            setValue('unit', res.unit);
-            setValue('quantity', res.quantity);
-            setValue('originalPrice', res.originalPrice);
-            setValue('salePrice', res.price);
+            setValue("sku", res.sku);
+            setValue("title", res.title);
+            setValue("slug", res.slug);
+            setValue("description", res.description);
+            setValue("parent", res.parent);
+            setValue("children", res.children);
+            setValue("type", res.type);
+            setValue("unit", res.unit);
+            setValue("quantity", res.quantity);
+            setValue("originalPrice", res.originalPrice);
+            setValue("salePrice", res.price);
             setTag(JSON.parse(res.tag));
             setImageUrl(res.image);
           }
         })
         .catch((err) => {
-          notifyError('There is a server error!');
+          notifyError("There is a server error!");
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, setValue, isDrawerOpen]);
 
   useEffect(() => {
-    setChildren(watch('children'));
+    setChildren(watch("children"));
   }, [watch, children]);
 
   return {

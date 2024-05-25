@@ -74,12 +74,13 @@ const Category = () => {
               <tr>
               <TableCell>NAME</TableCell>
                 <TableCell>IMAGE</TableCell>
+                <TableCell>CHILD CATEGORIES</TableCell>
                 <TableCell>NUMBER OF PRODUCTS</TableCell>
                 <TableCell>ENABLE</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
              
               </tr>
-            </TableHeader>
+            </TableHeader> 
             <CategoryTable categories={dataTable} />
           </Table>
           <TableFooter>

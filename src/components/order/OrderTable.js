@@ -18,15 +18,12 @@ const OrderTable = ({ orders }) => {
            
             <TableCell>
               <span className="font-semibold uppercase text-xs">
-                #on{order.invoice}
+                #on00{order.id}
               </span>
             </TableCell>
             <TableCell>
               <span className="text-sm">
                 {JSON.parse(order.cart).map(item => item.title).join(", ")}
-
-
-                {/* {dayjs(order.createdAt).format('MMM D, YYYY')} */}
               </span>
             </TableCell>
 

@@ -14,7 +14,7 @@ import DrawerButton from '../form/DrawerButton';
 // import Uploader from '../image-uploader/Uploader';
 // import ChildrenCategory from '../category/ChildrenCategory';
 // import ParentCategory from '../category/ParentCategory';
-import faqData from '../../utils/faq';
+// import faqData from '../../utils/faq';
 import useFaqSubmit from './../../hooks/useFaqSubmit';
 
 
@@ -32,7 +32,7 @@ const FaqDrawer = ({ id }) => {
     // setTag,
   } = useFaqSubmit(id);
 
-  const data = faqData.find((f) => f.id === id);
+  // const data = faqData.find((f) => f.id === id);
 
 
   return (

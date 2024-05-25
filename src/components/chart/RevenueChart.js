@@ -4,17 +4,16 @@ import OrderServices from '../../services/OrderServices';
 
 const RevenueChart = () => {
   const { data } = useAsync(OrderServices.getBestSellerProductChart);
-// console.log('fffffffff', data);
+
   const PieOption = {
     data: {
       datasets: [
         {
           data: data?.bestSellingProducts?.map((selling) => selling.count),
-          backgroundColor: ['#10B981', '#3B82F6', '#F97316', '#0EA5E9'],
+          backgroundColor: ['#68CC58', '#3B82F6', '#F97316', '#0EA5E9'],
           label: 'Dataset 1',
         },
       ],
-      // labels: data?.bestSellingProducts?.map((selling) => selling._id),
       labels: data?.bestSellingProducts?.map((selling) => selling.title),
     },
     options: {

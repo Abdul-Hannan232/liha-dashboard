@@ -27,7 +27,7 @@ const useCategorySubmit = (id) => {
       // slug: slug,
       // type: type,
       icon: imageUrl,
-      // children: children,
+      children: children,
     };
 
     if (id) {

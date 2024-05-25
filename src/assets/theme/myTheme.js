@@ -187,7 +187,6 @@ const myTheme = {
       base: 'text-white base-bg-color border border-transparent',
       active:
         'active:base-bg-color focus:ring focus:ring-purple-300',
-        // 'active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300',
       disabled: 'opacity-50 cursor-not-allowed',
     },
     outline: {

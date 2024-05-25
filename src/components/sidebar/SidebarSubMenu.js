@@ -27,7 +27,6 @@ const SidebarSubMenu = ({ route }) => {
               {open ? <IoChevronDownOutline /> : <IoChevronForwardOutline />}
             </span>
           </span>
-          {/* <DropdownIcon className="w-4 h-4" aria-hidden="true" /> */}
         </button>
         {open && (
           <ul
@@ -38,11 +37,8 @@ const SidebarSubMenu = ({ route }) => {
               <li key={i + 1}>
                 <NavLink
                   to={child.path}
-                  // target={`${child.name === 'Sell' ? '_blank' : '_self'}`}
                   className="flex items-center font-serif py-1 text-sm text-gray-600 hover:text-green-300 cursor-pointer"
-                  // className="flex items-center font-serif py-1 text-sm text-gray-600 hover:text-green-600 cursor-pointer"
                   activeClassName="text-green-300 dark:text-gray-100"
-                  // activeClassName="text-green-500 dark:text-gray-100"
                 >
                   <Route path={child.path} exact={route.exact}>
                     <span
