@@ -126,6 +126,8 @@ const ProductTable = ({ products }) => {
             <TableCell>
               <ShowHideButton id={product.id} status={product.status} />
             </TableCell>
+
+
             <TableCell>
               <EditDeleteButton
                 id={product.id}

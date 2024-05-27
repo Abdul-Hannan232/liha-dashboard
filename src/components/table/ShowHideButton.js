@@ -40,7 +40,8 @@ const ShowHideButton = ({ id, status }) => {
 
   return (
     <span
-      className="cursor-pointer  text-3xl flex justify-center text-center"
+      // className="cursor-pointer  text-3xl flex justify-center text-center"
+      className="cursor-pointer  text-3xl text-center"
       onClick={() => handleChangeStatus(id)}
     >
       {status === "Show" ? (
