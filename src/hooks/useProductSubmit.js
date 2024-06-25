@@ -10,7 +10,10 @@ const useProductSubmit = (id, type) => {
   const { data, loading } = useAsync(CategoryServices.getAllCategory);
 
   const [imageUrl, setImageUrl] = useState("");
+  const [title, setTitle] = useState("");
   const [children, setChildren] = useState("");
+  const [stock, setStock] = useState();
+  const [price, setPrice] = useState();
   const [tag, setTag] = useState([]);
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
@@ -30,7 +33,7 @@ const useProductSubmit = (id, type) => {
        
     );
 
-    console.log('result ', result);
+    // console.log('result ', result);
 
     if (!imageUrl) {
       notifyError("Image is required!");
@@ -42,9 +45,10 @@ const useProductSubmit = (id, type) => {
       description: formData.description,
       parent: formData.parent,
       children: formData.children,
-      price: formData.originalPrice,
+      price: formData.price,
       image: imageUrl,
       tag: JSON.stringify(tag),
+      stock: formData.stock,
       category_id: result.id,
     };
     // console.log(productData);
@@ -72,19 +76,20 @@ const useProductSubmit = (id, type) => {
     ProductServices.getProductsByCategory(id)
       .then((res) => {
         if (res) {
-          setValue("sku", res.sku);
+          // setValue("sku", res.sku);
           setValue("title", res.title);
-          setValue("slug", res.slug);
+          // setValue("slug", res.slug);
           setValue("description", res.description);
           setValue("parent", res.parent);
           setValue("children", res.children);
-          setValue("type", res.type);
+          // setValue("type", res.type);
           setValue("unit", res.unit);
-          setValue("quantity", res.quantity);
-          setValue("originalPrice", res.originalPrice);
+          // setValue("quantity", res.quantity);
+          setValue("originalPrice", res.price);
           setValue("salePrice", res.price);
           setTag(JSON.parse(res.tag));
           setImageUrl(res.image);
+        
         }
       })
       .catch((err) => {
@@ -105,6 +110,8 @@ const useProductSubmit = (id, type) => {
       setValue("quantity");
       setValue("originalPrice");
       setValue("salePrice");
+      setValue("stock");
+      setValue("price");
       setImageUrl("");
       setChildren("");
       setTag([]);
@@ -127,6 +134,7 @@ const useProductSubmit = (id, type) => {
     if (id) {
       ProductServices.getProductById(id)
         .then((res) => {
+          // console.log('price-------- ', res.price);
           if (res) {
             setValue("sku", res.sku);
             setValue("title", res.title);
@@ -137,10 +145,16 @@ const useProductSubmit = (id, type) => {
             setValue("type", res.type);
             setValue("unit", res.unit);
             setValue("quantity", res.quantity);
-            setValue("originalPrice", res.originalPrice);
-            setValue("salePrice", res.price);
+            // setValue("originalPrice", res.originalPrice);
+            // setValue("salePrice", res.price);
+            setValue("stock", res.stock);
+            setValue("price", res.price);
             setTag(JSON.parse(res.tag));
             setImageUrl(res.image);
+            setTitle(res.title);
+            // setStock(res.stock);
+            // setPrice(res.price)
+            
           }
         })
         .catch((err) => {
@@ -164,6 +178,12 @@ const useProductSubmit = (id, type) => {
     setImageUrl,
     tag,
     setTag,
+    title,
+    setTitle,
+    stock,
+    setStock,
+    price,
+    setPrice
   };
 };
 

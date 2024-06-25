@@ -15,6 +15,7 @@ const CategoryServices = {
 
   
   updateCategory(id, body) {
+    console.log(body, 'idddddddddddd');
     return requests.put(`/category/${id}`, body);
   },
 

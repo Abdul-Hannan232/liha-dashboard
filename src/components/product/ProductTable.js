@@ -124,6 +124,10 @@ const ProductTable = ({ products }) => {
             </TableCell>
 
             <TableCell>
+              <span className="text-sm font-semibold">{product.stock}</span>
+            </TableCell>
+
+            <TableCell>
               <ShowHideButton id={product.id} status={product.status} />
             </TableCell>
 

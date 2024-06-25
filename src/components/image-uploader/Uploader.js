@@ -40,8 +40,10 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
         })
           .then((res) => {
             const correctedImageUrl = res.data.image.replace("5055", "4000");
-            console.log(correctedImageUrl);
+            // console.log(correctedImageUrl);
             setImageUrl(correctedImageUrl);
+            // setImageUrl(res.data.image);
+            // console.log('00000000',res.data.image);
           })
           .catch((err) => console.log(err));
       });
@@ -49,7 +51,6 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files, uploadUrl, setImageUrl]);
 
-  
   // const thumbs = files.map((file) => (
   //   <div key={file.name}>
   //     <div>
@@ -88,11 +89,20 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
       </div>
       <aside className="flex flex-row flex-wrap mt-4">
         {imageUrl && (
+        <>
           <img
             className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
-            src={imageUrl.startsWith('http') ? imageUrl : `http://localhost:4000/upload/${imageUrl}`}
+            // src={
+            //   imageUrl.startsWith("http")
+            //     ? imageUrl
+            //     : `http://localhost:5055/upload/${imageUrl}`
+            // }
+            // src={imageUrl.startsWith('http') ? imageUrl : `http://localhost:4000/upload/${imageUrl}`}
+            src={imageUrl}
             alt="Uploaded Image"
           />
+          {console.log('00000000000 ',imageUrl)}
+        </>
         )}
       </aside>
     </div>

@@ -29,6 +29,12 @@ const ProductDrawer = ({ id }) => {
     setImageUrl,
     tag,
     setTag,
+    title,
+    setTitle,
+    stock,
+    setStock,
+    price,
+    setPrice
   } = useProductSubmit(id);
   const { data, loading } = useAsync(CategoryServices.getAllCategory);
 
@@ -126,11 +132,30 @@ const ProductDrawer = ({ id }) => {
                   maxValue={2000}
                   minValue={1}
                   label="Price"
-                  name="originalPrice"
+                  name="price"
                   type="number"
                   placeholder="Price"
+                  // defaultValue={id?price:''}
+
                 />
-                <Error errorName={errors.originalPrice} />
+                <Error errorName={errors.price} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Stock" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputValue
+                  register={register}
+                  maxValue={2000}
+                  minValue={1}
+                  label="Stock"
+                  name="stock"
+                  type="number"
+                  placeholder="stock"
+                  // defaultValue={id?stock:''}
+                />
+                <Error errorName={errors.stock} />
               </div>
             </div>
 

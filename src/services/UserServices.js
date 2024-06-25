@@ -11,6 +11,6 @@
 //   deleteUser(id) {
 //     return requests.delete(`/user/${id}`);
 //   },
-// };
+// }; 
 
 // export default UserServices;

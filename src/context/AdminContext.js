@@ -4,7 +4,7 @@ import React, { createContext, useReducer } from 'react';
 export const AdminContext = createContext();
 
 const initialState = {
-  adminInfo: Cookies.get('adminInfo')
+  adminInfo: Cookies.get('adminInfo') 
     ? JSON.parse(Cookies.get('adminInfo'))
     : null,
 };

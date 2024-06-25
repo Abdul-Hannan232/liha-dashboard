@@ -5,6 +5,7 @@ import CategoryServices from "../services/CategoryServices";
 import { notifyError, notifySuccess } from "../utils/toast";
 
 const useCategorySubmit = (id) => {
+  const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [children, setChildren] = useState([]);
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
@@ -23,7 +24,7 @@ const useCategorySubmit = (id) => {
       return;
     }
     const categoryData = {
-      name,
+      name: name,
       // slug: slug,
       // type: type,
       icon: imageUrl,
@@ -33,7 +34,7 @@ const useCategorySubmit = (id) => {
     if (id) {
       CategoryServices.updateCategory(id, categoryData)
         .then((res) => {
-          console.log(res.data);
+          console.log(res?.data);
           setIsUpdate(true);
           notifySuccess(res.message);
         })
@@ -53,7 +54,7 @@ const useCategorySubmit = (id) => {
   useEffect(() => {
     if (!isDrawerOpen) {
       setValue("parent");
-      // setValue("slug");
+      setValue("name");
       setValue("children");
       setValue("type");
       setImageUrl("");
@@ -68,11 +69,13 @@ const useCategorySubmit = (id) => {
       CategoryServices.getCategoryById(id)
         .then((res) => {
           if (res) {
-            setValue("parent", res.name);
+            // setValue("parent", res.name);
+            setValue("name", res.name);
             // setValue("slug", res.slug);
             // console.log('iiiiiiiiiiiiiiiiiii', res);
             // setChildren(res.children);
-            setValue("type", res.type);
+            // setValue("type", res.type);
+            setChildren(JSON.parse(res.children));
             setValue("icon", res.icon);
             setImageUrl(res.icon);
           }

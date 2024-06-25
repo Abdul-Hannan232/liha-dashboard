@@ -61,15 +61,16 @@ const CategoryDrawer = ({ id }) => {
                 <Error errorName={errors.type} />
               </div>
             </div>
-
+            {/* {console.log('----------',children)} */}
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Child Category" />
               <div className="col-span-8 sm:col-span-4">
                 <ReactTagInput
                   placeholder="Child category (Write then press enter to add new child category)"
-                  tags={
-                    Array.isArray(children) ? children : JSON.parse(children)
-                  }
+                  tags={children ? (Array.isArray(children) ? children : JSON.parse(children)) : []}
+                  // tags={
+                  //   children !== null &&  (Array.isArray(children) ? children : JSON.parse(children))
+                  // }
                   onChange={(child) => {
                     setChildren(child);
                   }}

@@ -89,6 +89,7 @@ const Products = () => {
                 <TableCell>PRICE</TableCell>
                 <TableCell>PRODUCT DETAILS</TableCell>
                 <TableCell>TAGS</TableCell>
+                <TableCell>Stock</TableCell>
                 <TableCell className="text-center">ENABLES</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>

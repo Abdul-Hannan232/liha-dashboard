@@ -21,7 +21,7 @@ const AdminServices = {
   //   return requests.post('/admin/signup', body);
   // },
 
-  // addStaff(body) {
+  // addStaff(body) { 
   //   return requests.post('/admin/add', body);
   // },
   // getAllStaff(body) {
