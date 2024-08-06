@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { FiUploadCloud } from "react-icons/fi";
+import { FiUploadCloud, FiCircle } from "react-icons/fi";
+import { IoIosCloseCircle } from "react-icons/io";
 
-const Uploader = ({ setImageUrl, imageUrl }) => {
-  
+const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
   const [files, setFiles] = useState([]);
+  // const [imageUrl, setImgUrl] = useState([]);
   const uploadUrl = process.env.REACT_APP_IMAGE_UPLOAD_URL;
   // const upload_Preset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
-  console.log('>>>>>>>>>>>>>> ', uploadUrl);
 
+  //   console.log('files >>>>>>>> 3', imageUrl);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
-    multiple: false,
-    maxSize: 500000,
+    multiple: true,
+    // maxSize: 500000,
+    maxSize: 5000000,
     onDrop: (acceptedFiles) => {
+      console.log(acceptedFiles);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -28,10 +31,9 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
   useEffect(() => {
     // const uploadURL = uploadUrl;
     // const uploadPreset = upload_Preset;
+    console.log(uploadUrl);
     if (files) {
       files.forEach((file) => {
-        // console.log(file.name);
-        
         const formData = new FormData();
         formData.append("file", file);
         axios({
@@ -44,28 +46,20 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
         })
           .then((res) => {
             // const correctedImageUrl = res.data.image.replace("5055", "4000");
-            // console.log(res.data.image);
-            // setImageUrl(correctedImageUrl);
-            setImageUrl(res.data.image);
-            // console.log('00000000',res.data.image);
+            const correctedImageUrl = res.data.image;
+            // console.log('correctedImageUrl ', correctedImageUrl);
+
+            Array.isArray(imageUrl) && imageUrl.length > 1
+              ? setImageUrl((prev) => [...prev, correctedImageUrl])
+              : setImageUrl(correctedImageUrl);
+
+            // setImageUrl((prev) => [...prev, correctedImageUrl]);
           })
           .catch((err) => console.log(err));
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files, uploadUrl, setImageUrl]);
-
-  // const thumbs = files.map((file) => (
-  //   <div key={file.name}>
-  //     <div>
-  //       <img
-  //         className="inline-flex  border-2 border-gray-100 w-24 max-h-24"
-  //         src={file.preview}
-  //         alt={file.name}
-  //       />
-  //     </div>
-  //   </div>
-  // ));
 
   useEffect(
     () => () => {
@@ -75,6 +69,11 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
     [files]
   );
 
+  const removeImage = (index) => {
+    // console.log("--------index", index);
+    const newImageUrl = imageUrl.filter((_, i) => i !== index);
+    setImageUrl(newImageUrl);
+  };
   return (
     <div className="w-full text-center">
       <div
@@ -91,27 +90,42 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
           (Only *.jpeg and *.png images will be accepted)
         </em>
       </div>
-      <aside className="flex flex-row flex-wrap mt-4">
-        {imageUrl && (
-        <>
+      {imageUrl && Array.isArray(imageUrl) ? (
+        <aside className="flex flex-row flex-wrap mt-4">
+          {imageUrl.map((file, i) => (
+    
+            <div className="relative" key={i}>
+              <IoIosCloseCircle
+                onClick={() => removeImage(i)}
+                className="absolute top-0 text-2xl bg-white text-gray-300 rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:text-gray-400 hover:-translate-y-1"
+              />{" "}
+               {       console.log(file)
+            }
+              <img
+                key={i}
+                className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
+                src={file}
+                alt="Uploaded Image"
+              />
+            </div>
+          ))}
+        </aside>
+      ) : (
+        <aside className="flex flex-row flex-wrap mt-4">
           <img
             className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
-            // src={
-            //   imageUrl.startsWith("http")
-            //     ? imageUrl
-            //     : `http://localhost:5055/upload/${imageUrl}`
-            // }
-            // src={imageUrl.startsWith('http') ? imageUrl : `http://localhost:4000/upload/${imageUrl}`}
-            // src={imageUrl.replace("5055", "4000")}
-            src={imageUrl}
+            src={
+              imageUrl.startsWith("http")
+                ? imageUrl
+                : `${imageUrl}`
+                // : `h/ttp://localhost:5055/upload/${imageUrl}`
+            }
             alt="Uploaded Image"
           />
-          {/* {console.log('00000000000 ',imageUrl)} */}
-        </>
-        )}
-      </aside>
+        </aside>
+      )}
     </div>
   );
 };
 
-export default Uploader;
+export default ProductImgUploader;

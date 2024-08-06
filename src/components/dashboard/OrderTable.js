@@ -4,11 +4,12 @@ import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
 import Status from '../table/Status';
 
 const OrderTable = ({ orders }) => {
+  // console.log(orders?.orders);
   return (
     <>
       <TableBody>
-        {orders?.map((order) => (
-          <TableRow key={order._id}>
+        {orders?.orders?.map((order) => (
+          <TableRow key={order.id}>
             <TableCell>
               <span className="text-sm">
                 {dayjs(order.createdAt).format('MMM D, YYYY')}
@@ -16,11 +17,12 @@ const OrderTable = ({ orders }) => {
             </TableCell>
 
             <TableCell>
-              <span className="text-sm ">{order.address.substring(0)}</span>
+              {/* <span className="text-sm ">{order.user.address.substring(0)}</span> */}
+              <span className="text-sm ">{order.user.address}</span>
             </TableCell>
             <TableCell>
               {' '}
-              <span className="text-sm">{order.contact}</span>{' '}
+              <span className="text-sm">{order.user.phone}</span>{' '}
             </TableCell>
             <TableCell>
               <span className="text-sm font-semibold">
@@ -30,7 +32,7 @@ const OrderTable = ({ orders }) => {
             <TableCell>
               {' '}
               <span className="text-sm font-semibold">
-                ${Math.round(order.total)}.00
+                ${Math.round(order.totalPrice)}.00
               </span>{' '}
             </TableCell>
             <TableCell>

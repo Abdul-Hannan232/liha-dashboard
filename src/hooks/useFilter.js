@@ -88,10 +88,11 @@ const useFilter = (data) => {
     //products filtering
 
     if (filter) {
-      services = services.filter((item) => item.parent === filter);
+      services = services.filter((item) => item.parent || item.name=== filter);
     }
 
     if (sortedField === 'Low') {
+
       services = services.sort((a, b) => a.price < b.price && -1);
     }
     if (sortedField === 'High') {
@@ -106,7 +107,8 @@ const useFilter = (data) => {
     //category searching
     if (categoryType) {
       services = services.filter((search) =>
-        search.type.toLowerCase().includes(categoryType.toLowerCase())
+        // search.type.toLowerCase().includes(categoryType.toLowerCase())
+        search.name.toLowerCase().includes(categoryType.toLowerCase())
       );
     }
 
@@ -213,7 +215,7 @@ const useFilter = (data) => {
   const handleSubmitCategory = (e) => {
     e.preventDefault();
     setCategoryType(categoryRef.current.value);
-    console.log(categoryRef.current.value);
+    console.log('------->>>> ',categoryRef.current.value);
   };
 
   //table form submit function for search end

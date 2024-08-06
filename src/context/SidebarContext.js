@@ -8,7 +8,7 @@ export const SidebarProvider = ({ children }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
-  const resultsPerPage = 20;
+  const resultsPerPage = 8;
   const [limitData, setLimitData] = useState(20);
   const [isBulkDrawerOpen, setIsBulkDrawerOpen] = useState(false);
   const [lang, setLang] = useState('');

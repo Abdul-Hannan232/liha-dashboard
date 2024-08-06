@@ -17,6 +17,8 @@ const useProductSubmit = (id, type) => {
   const [tag, setTag] = useState([]);
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
+// console.log('---------- imageUrl', imageUrl);
+
   const {
     register,
     handleSubmit,
@@ -40,13 +42,16 @@ const useProductSubmit = (id, type) => {
       return;
     }
    
+    // console.log('imageUrl', imageUrl);
     const productData = {
       title: formData.title,
       description: formData.description,
       parent: formData.parent,
       children: formData.children,
       price: formData.price,
-      image: imageUrl,
+      gallery: imageUrl.length > 1 ? JSON.stringify(imageUrl) : '[]',
+      image: typeof imageUrl === 'string' ? imageUrl : '',
+      // image: imageUrl.length === 1 ? imageUrl[0] : '',
       tag: JSON.stringify(tag),
       stock: formData.stock,
       category_id: result.id,
@@ -88,7 +93,7 @@ const useProductSubmit = (id, type) => {
           setValue("originalPrice", res.price);
           setValue("salePrice", res.price);
           setTag(JSON.parse(res.tag));
-          setImageUrl(res.image);
+          setImageUrl(res.image ? res.image : res.gallery);
         
         }
       })
@@ -134,7 +139,7 @@ const useProductSubmit = (id, type) => {
     if (id) {
       ProductServices.getProductById(id)
         .then((res) => {
-          // console.log('price-------- ', res.price);
+          // console.log('price-------- ', res.children);
           if (res) {
             setValue("sku", res.sku);
             setValue("title", res.title);
@@ -150,7 +155,7 @@ const useProductSubmit = (id, type) => {
             setValue("stock", res.stock);
             setValue("price", res.price);
             setTag(JSON.parse(res.tag));
-            setImageUrl(res.image);
+            setImageUrl(res.image ?  res.image : JSON.parse(res.gallery));
             setTitle(res.title);
             // setStock(res.stock);
             // setPrice(res.price)

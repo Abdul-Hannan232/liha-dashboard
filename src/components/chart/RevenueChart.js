@@ -1,10 +1,11 @@
 import { Pie } from 'react-chartjs-2';
 import useAsync from '../../hooks/useAsync';
 import OrderServices from '../../services/OrderServices';
+import { logDOM } from '@testing-library/react';
 
 const RevenueChart = () => {
   const { data } = useAsync(OrderServices.getBestSellerProductChart);
-
+// console.log('vRevenueChart data' , data);
   const PieOption = {
     data: {
       datasets: [
@@ -14,7 +15,7 @@ const RevenueChart = () => {
           label: 'Dataset 1',
         },
       ],
-      labels: data?.bestSellingProducts?.map((selling) => selling.title),
+      labels: data?.bestSellingProducts?.map((selling) => selling.name),
     },
     options: {
       responsive: true,

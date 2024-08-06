@@ -11,7 +11,7 @@ const Category = lazy(() => import('../pages/Category'));
 const CustomerOrder = lazy(() => import('../pages/CustomerOrder'));
 const FaqDetails = lazy(() => import('../pages/FaqDetails'));
 const Orders = lazy(() => import('../pages/Orders'));
-// const OrderInvoice = lazy(() => import('../pages/OrderInvoice'));
+const OrderInvoice = lazy(() => import('../pages/OrderInvoice'));
 // const Coupons = lazy(() => import('../pages/Coupons'));
 // const Setting = lazy(() => import("../pages/Setting"));
 // const Page404 = lazy(() => import('../pages/404'));
@@ -75,10 +75,10 @@ const routes = [
   //   path: '/our-staff',
   //   component: Staff,
   // },
-  // {
-  //   path: '/order/:id',
-  //   component: OrderInvoice,
-  // },
+  {
+    path: '/order/:id',
+    component: OrderInvoice,
+  },
   // {
   //   path: '/coupons',
   //   component: Coupons,

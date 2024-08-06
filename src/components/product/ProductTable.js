@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   TableCell,
   TableBody,
@@ -7,9 +7,9 @@ import {
   // Badge,
   Avatar,
 } from "@windmill/react-ui";
-// import { FiZoomIn } from "react-icons/fi";
+import { FiZoomIn } from "react-icons/fi";
 
-// import Tooltip from "../tooltip/Tooltip";
+import Tooltip from "../tooltip/Tooltip";
 import MainModal from "../modal/MainModal";
 import MainDrawer from "../drawer/MainDrawer"; 
 import ProductDrawer from "../drawer/ProductDrawer";
@@ -35,7 +35,9 @@ const ProductTable = ({ products }) => {
       <TableBody>
         {/* {console.log(products)} */}
         {products?.map((product, i) => (
+          
           <TableRow key={i + 1}>
+            {/* {console.log(`''''''''''''''''''' '`, product.title , JSON.parse(product.gallery)[0])} */}
             {/* <TableCell>
               <span className="text-xs uppercase font-semibold">
                 {' '}
@@ -52,12 +54,21 @@ const ProductTable = ({ products }) => {
 
             <TableCell>
               <div className="flex items-center">
+              {product.image  && product.image !== '' ?  (
+                
                 <Avatar
                  size="large"
                   className="hidden  mr-2 md:block bg-gray-50 shadow-none"
                   src={product.image}
                   alt={product.title}
-                />
+                />) : ( <Avatar
+                size="large"
+                 className="hidden  mr-2 md:block bg-gray-50 shadow-none"
+                //  src={JSON.parse(product.gallery)[0].replace('4000', '5055')}
+                 src={JSON.parse(product.gallery)[0]}
+                 alt={product.title}
+               />
+              )}
                 {/* <div>
                   <h2 className="text-sm font-medium">{product.title}</h2>
                 </div> */}
@@ -125,6 +136,20 @@ const ProductTable = ({ products }) => {
 
             <TableCell>
               <span className="text-sm font-semibold">{product.stock}</span>
+            </TableCell>
+
+            <TableCell>
+              <Link
+                to={`/product/${product.id}`}
+                className="flex justify-center text-center text-gray-400 hover:text-green-600"
+              >
+                <Tooltip
+                  id="details"
+                  Icon={FiZoomIn}
+                  title="Details"
+                  bgColor="#10B981"
+                />
+              </Link>
             </TableCell>
 
             <TableCell>

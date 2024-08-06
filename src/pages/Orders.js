@@ -39,7 +39,10 @@ const Orders = () => {
 
   const { dataTable, serviceData } = useFilter(data.orders);
 
-  const totalSum = dataTable?.reduce((acc, item) => acc + item.total, 0);
+  console.log('>>>>>>>>>>>>. dataTable', dataTable)
+
+  const totalSum = dataTable?.reduce((acc, item) => acc + item.totalPrice, 0) || 0;
+
   return (
     <>
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
@@ -77,7 +80,7 @@ const Orders = () => {
           <TableFooter>
             <Pagination
               totalResults={data?.totalDoc}
-              resultsPerPage={10}
+              resultsPerPage={8}
               onChange={handleChangePage}
               label="Table navigation"
             />

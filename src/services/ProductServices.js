@@ -7,7 +7,7 @@ const ProductServices = {
     const searchPrice = price !== null ? price : '';
 
     return requests.get(
-      `/products?page=${page}&limit=${limit}&category=${searchCategory}&title=${searchTitle}&price=${searchPrice}`
+      `/products?isDashboard=true&page=${page}&limit=${limit}&category=${searchCategory}&title=${searchTitle}&price=${searchPrice}`
     );
   },
 
@@ -16,7 +16,7 @@ const ProductServices = {
   },
  
   getProductById(id) {
-    return requests.post(`/products/${id}`);
+    return requests.get(`/products/product/${id}`);
   },
 
   addProduct(body) {

@@ -42,9 +42,17 @@ const Dashboard = () => {
     })
   );
 
+  const { data:dataTable } = useAsync(() =>
+    OrderServices.getAllOrders({
+      // contact: 'DESC',
+      // page: currentPage,
+      limit: 5,
+      // day: time,
+    })
+  );
 
-  const { dataTable } = useFilter(data?.orders);
-
+  // const { dataTable } = useFilter(data?.orders);
+// console.log('>>>>>>>>>>>>>>>>>>> ',data);
   useEffect(() => {
     // const todayOrderTotal = data?.todayOrder?.reduce(
     //   (pre, acc) => pre + acc.total,
@@ -58,8 +66,8 @@ const Dashboard = () => {
       if (!res[onlyDate]) {
         res[onlyDate] = { date: onlyDate, total: 0, order: 0 };
         salesReport.push(res[onlyDate]);
-      }
-      res[onlyDate].total += value.total;
+      }console.log('value ', value);
+      res[onlyDate].total += value.totalPrice;
       res[onlyDate].order += 1;
       return res;
     }, {});
@@ -148,14 +156,14 @@ const Dashboard = () => {
             </TableHeader>
             <OrderTable orders={dataTable} />
           </Table>
-          <TableFooter>
+          {/* <TableFooter>
             <Pagination
               totalResults={data?.totalOrder}
               resultsPerPage={8}
               onChange={handleChangePage}
               label="Table navigation"
             />
-          </TableFooter>
+          </TableFooter> */}
         </TableContainer>
       )}
     </>

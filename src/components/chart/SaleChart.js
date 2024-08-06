@@ -7,6 +7,8 @@ const SaleChart = ({ salesReport }) => {
     color: '#68CC58',
   });
 
+
+  // console.log('salesReport ', salesReport);
   const handleClick = ({ title, color }) => {
     setActiveButton({ title, color });
   };

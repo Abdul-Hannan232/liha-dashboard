@@ -2,7 +2,7 @@ import requests from './httpService';
 
 const CategoryServices = {
   getAllCategory() {
-    return requests.get('/category');
+    return requests.get('/category?isDashboard=true');
   },
 
   getCategoryById(id) {
@@ -15,7 +15,7 @@ const CategoryServices = {
 
   
   updateCategory(id, body) {
-    console.log(body, 'idddddddddddd');
+    // console.log(body, 'idddddddddddd');
     return requests.put(`/category/${id}`, body);
   },
 

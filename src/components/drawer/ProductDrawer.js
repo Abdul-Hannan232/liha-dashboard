@@ -17,6 +17,7 @@ import useProductSubmit from "../../hooks/useProductSubmit";
 import useAsync from "../../hooks/useAsync";
 import CategoryServices from "../../services/CategoryServices";
 import ParentCategory from "../category/ParentCategory";
+import ProductImgUploader from "../image-uploader/ProductImgUploader";
 
 const ProductDrawer = ({ id }) => {
   const {
@@ -36,6 +37,9 @@ const ProductDrawer = ({ id }) => {
     price,
     setPrice
   } = useProductSubmit(id);
+
+  // console.log('----------------- imageUrl', imageUrl);
+
   const { data, loading } = useAsync(CategoryServices.getAllCategory);
 
 
@@ -60,7 +64,8 @@ const ProductDrawer = ({ id }) => {
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Image" />
               <div className="col-span-8 sm:col-span-4">
-                <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
+                <ProductImgUploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
+                {/* <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} /> */}
               </div>
             </div>
 
@@ -114,10 +119,15 @@ const ProductDrawer = ({ id }) => {
                   {...register("children", {
                     required: "Product children category is required!",
                   })}
+                 
                 >
-                  <option value="" defaultValue hidden>
+               {!id &&  <option value=""  hidden>
                     Select child category
-                  </option>
+                  </option> } 
+
+                  <option value={watch("children")}  selected  hidden>
+                  {watch("children")}
+                  </option>  
                   <ChildrenCategory value={watch("parent")} />
                 </Select>
                 <Error errorName={errors.children} />
@@ -192,8 +202,8 @@ const ProductDrawer = ({ id }) => {
             </div>
           </div>
 
-          <DrawerButton id={id} />
-          {/* <DrawerButton id={id} title="Product" /> */}
+          {/* <DrawerButton id={id} /> */}
+          <DrawerButton id={id} title="Product" />
         </form>
       </Scrollbars>
     </>
