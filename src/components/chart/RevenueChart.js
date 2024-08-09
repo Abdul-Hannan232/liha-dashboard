@@ -1,7 +1,7 @@
 import { Pie } from 'react-chartjs-2';
 import useAsync from '../../hooks/useAsync';
 import OrderServices from '../../services/OrderServices';
-import { logDOM } from '@testing-library/react';
+// import { logDOM } from '@testing-library/react';
 
 const RevenueChart = () => {
   const { data } = useAsync(OrderServices.getBestSellerProductChart);

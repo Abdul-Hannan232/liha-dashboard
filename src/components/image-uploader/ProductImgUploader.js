@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { FiUploadCloud, FiCircle } from "react-icons/fi";
+import { FiUploadCloud} from "react-icons/fi";
 import { IoIosCloseCircle } from "react-icons/io";
 
 const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
@@ -31,7 +31,7 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
   useEffect(() => {
     // const uploadURL = uploadUrl;
     // const uploadPreset = upload_Preset;
-    console.log(uploadUrl);
+    // console.log(uploadUrl);
     if (files) {
       files.forEach((file) => {
         const formData = new FormData();
@@ -45,15 +45,18 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
           },
         })
           .then((res) => {
+
+
             // const correctedImageUrl = res.data.image.replace("5055", "4000");
             const correctedImageUrl = res.data.image;
-            // console.log('correctedImageUrl ', correctedImageUrl);
+            // console.log('correctedImageUrl ',  correctedImageUrl);
 
-            Array.isArray(imageUrl) && imageUrl.length > 1
-              ? setImageUrl((prev) => [...prev, correctedImageUrl])
-              : setImageUrl(correctedImageUrl);
+            // Array.isArray(imageUrl) && imageUrl.length > 1
+            //   ? setImageUrl((prev) => [...prev, correctedImageUrl])
+            //   : setImageUrl(correctedImageUrl);
 
-            // setImageUrl((prev) => [...prev, correctedImageUrl]);
+            res.data.image && setImageUrl((prev) => [...prev, correctedImageUrl]);
+            
           })
           .catch((err) => console.log(err));
       });
@@ -99,13 +102,12 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
                 onClick={() => removeImage(i)}
                 className="absolute top-0 text-2xl bg-white text-gray-300 rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:text-gray-400 hover:-translate-y-1"
               />{" "}
-               {       console.log(file)
-            }
+            
               <img
                 key={i}
                 className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
                 src={file}
-                alt="Uploaded Image"
+                alt=""
               />
             </div>
           ))}
@@ -120,7 +122,7 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
                 : `${imageUrl}`
                 // : `h/ttp://localhost:5055/upload/${imageUrl}`
             }
-            alt="Uploaded Image"
+            alt=""
           />
         </aside>
       )}

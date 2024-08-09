@@ -18,7 +18,7 @@ import useAsync from "../hooks/useAsync";
 import useFilter from "../hooks/useFilter";
 import NotFound from "../components/table/NotFound";
 import Loading from "../components/preloader/Loading";
-import ProductServices from "../services/ProductServices";
+// import ProductServices from "../services/ProductServices";
 import { SidebarContext } from "../context/SidebarContext";
 import MainDrawer from "../components/drawer/MainDrawer";
 import FaqTable from "../components/faq/FaqTable";
@@ -29,17 +29,17 @@ import FaqDrawer from "../components/drawer/FaqDrawer";
 const Faq = () => {
   const {
     toggleDrawer,
-    currentPage,
+    // currentPage,
     handleChangePage,
-    searchText,
-    category,
+    // searchText,
+    // category,
     // setSearchText,
     // setCategory,
     // searchRef,
     // setSortedField,
     handleSubmitForAll,
-    sortedField,
-    limitData,
+    // sortedField,
+    // limitData,
   } = useContext(SidebarContext);
 
   const { data, loading } = useAsync(FaqServices.getAllFaqs);

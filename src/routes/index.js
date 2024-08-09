@@ -8,7 +8,7 @@ const ProductDetails = lazy(() => import('../pages/ProductDetails'));
 const Category = lazy(() => import('../pages/Category'));
 // const Staff = lazy(() => import('../pages/Staff'));
 // const Customers = lazy(() => import('../pages/Customers'));
-const CustomerOrder = lazy(() => import('../pages/CustomerOrder'));
+// const CustomerOrder = lazy(() => import('../pages/CustomerOrder'));
 const FaqDetails = lazy(() => import('../pages/FaqDetails'));
 const Orders = lazy(() => import('../pages/Orders'));
 const OrderInvoice = lazy(() => import('../pages/OrderInvoice'));

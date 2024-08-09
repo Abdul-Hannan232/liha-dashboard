@@ -32,7 +32,8 @@ const ProductDetails = () => {
               {data.image && data.image !== "" ? (
                 <img
                   src={data.image}
-                  alt={data.title}
+                  alt=""
+                  // alt={data.title}
                   className="w-48  max-h-48 md:w-40  p-2"
                 />
               ) : (
@@ -43,7 +44,7 @@ const ProductDetails = () => {
                         className="w-48  max-h-48 md:w-40 md:max-h-40 p-2"
                         key={i}
                         src={file}
-                        alt="Product Image"
+                        alt=""
                       />
                     ))}
                   </aside>

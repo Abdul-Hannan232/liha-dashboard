@@ -1,4 +1,4 @@
-import { Badge, Button } from "@windmill/react-ui";
+import {  Button } from "@windmill/react-ui";
 import React from "react";
 import { useParams } from "react-router";
 
@@ -6,11 +6,11 @@ import useAsync from "../hooks/useAsync";
 import MainDrawer from "../components/drawer/MainDrawer";
 import useToggleDrawer from "../hooks/useToggleDrawer";
 import Loading from "../components/preloader/Loading";
-import PageTitle from "../components/Typography/PageTitle";
-import ProductServices from "../services/ProductServices";
-import ProductDrawer from "../components/drawer/ProductDrawer";
+// import PageTitle from "../components/Typography/PageTitle";
+// import ProductServices from "../services/ProductServices";
+// import ProductDrawer from "../components/drawer/ProductDrawer";
 import FaqDrawer from "../components/drawer/FaqDrawer";
-import faqData from "../utils/faq";
+// import faqData from "../utils/faq";
 import { FiEdit, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import FaqServices from "../services/FaqServices";
@@ -18,7 +18,8 @@ import FaqServices from "../services/FaqServices";
 const FaqDetails = () => {
   const { id } = useParams();
   const { data, loading } = useAsync(() => FaqServices.getFaqById(id));
-  const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+  // const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
+  const {  handleUpdate } = useToggleDrawer();
 
   // const data = faqData.find((f) => f.id === id);
   //   console.log("🚀 ~ FaqDetails ~ data:", data)

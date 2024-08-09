@@ -5,7 +5,7 @@ import CategoryServices from "../services/CategoryServices";
 import { notifyError, notifySuccess } from "../utils/toast";
 
 const useCategorySubmit = (id) => {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [children, setChildren] = useState([]);
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);

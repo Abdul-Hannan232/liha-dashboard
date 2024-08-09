@@ -123,7 +123,7 @@ import { SidebarContext } from "../context/SidebarContext";
 import PageTitle from "../components/Typography/PageTitle";
 import CategoryServices from "../services/CategoryServices";
 import CategoryTable from "../components/category/CategoryTable";
-import SelectCategory from "../components/form/SelectCategory";
+// import SelectCategory from "../components/form/SelectCategory";
 import MainDrawer from "../components/drawer/MainDrawer";
 import CategoryDrawer from "../components/drawer/CategoryDrawer";
 import { FaFilterCircleXmark } from "react-icons/fa6";

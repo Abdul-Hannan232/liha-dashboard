@@ -7,7 +7,8 @@ import useAsync from "./useAsync";
 import CategoryServices from "../services/CategoryServices";
 
 const useProductSubmit = (id, type) => {
-  const { data, loading } = useAsync(CategoryServices.getAllCategory);
+  // const { data, loading } = useAsync(CategoryServices.getAllCategory);
+  const { data} = useAsync(CategoryServices.getAllCategory);
 
   const [imageUrl, setImageUrl] = useState("");
   const [title, setTitle] = useState("");
@@ -50,7 +51,8 @@ const useProductSubmit = (id, type) => {
       children: formData.children,
       price: formData.price,
       gallery: imageUrl.length > 1 ? JSON.stringify(imageUrl) : '[]',
-      image: typeof imageUrl === 'string' ? imageUrl : '',
+      image: imageUrl.length === 1 ? imageUrl[0] : '',
+      // image: typeof imageUrl === 'string' ? imageUrl : '',
       // image: imageUrl.length === 1 ? imageUrl[0] : '',
       tag: JSON.stringify(tag),
       stock: formData.stock,
@@ -69,6 +71,8 @@ const useProductSubmit = (id, type) => {
     } else {
       ProductServices.addProduct(productData)
         .then((res) => {
+          console.log('addProduct ',res.reqz);
+          
           setIsUpdate(true);
           notifySuccess(res.message);
         })

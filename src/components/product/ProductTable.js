@@ -51,7 +51,8 @@ const ProductTable = ({ products }) => {
                 {product.title}
               </span>
             </TableCell>
-
+            {/* {console.log('ffffffffffffff',product)
+                } */}
             <TableCell>
               <div className="flex items-center">
               {product.image  && product.image !== '' ?  (

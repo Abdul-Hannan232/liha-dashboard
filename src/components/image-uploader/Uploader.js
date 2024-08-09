@@ -8,7 +8,7 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
   const [files, setFiles] = useState([]);
   const uploadUrl = process.env.REACT_APP_IMAGE_UPLOAD_URL;
   // const upload_Preset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
-  console.log('>>>>>>>>>>>>>> ', uploadUrl);
+  // console.log('>>>>>>>>>>>>>> ', uploadUrl);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -30,10 +30,14 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
     // const uploadPreset = upload_Preset;
     if (files) {
       files.forEach((file) => {
-        // console.log(file.name);
         
         const formData = new FormData();
         formData.append("file", file);
+
+        for (let pair of formData.entries()) {
+          console.log(pair[0], pair[1]);
+        }
+
         axios({
           url: uploadUrl,
           method: "POST",
@@ -104,7 +108,7 @@ const Uploader = ({ setImageUrl, imageUrl }) => {
             // src={imageUrl.startsWith('http') ? imageUrl : `http://localhost:4000/upload/${imageUrl}`}
             src={imageUrl.replace("5055", "4000")}
             // src={imageUrl}
-            alt="Uploaded Image"
+            alt="Uploaded pic"
           />
           {/* {console.log('00000000000 ',imageUrl)} */}
         </>

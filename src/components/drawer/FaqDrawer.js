@@ -8,7 +8,7 @@ import Title from '../form/Title';
 import Error from '../form/Error';
 import LabelArea from '../form/LabelArea';
 import InputArea from '../form/InputArea';
-import InputValue from '../form/InputValue';
+// import InputValue from '../form/InputValue';
 import DrawerButton from '../form/DrawerButton';
 // import SelectOption from '../form/SelectOption';
 // import Uploader from '../image-uploader/Uploader';

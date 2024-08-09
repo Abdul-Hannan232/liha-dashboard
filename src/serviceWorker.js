@@ -115,6 +115,15 @@ function checkValidServiceWorker(swUrl, config) {
           registration.unregister().then(() => {
             window.location.reload();
           });
+
+
+
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+  for(let registration of registrations) {
+    registration.unregister();
+  }
+});
+
         });
       } else {
         // Service worker found. Proceed as normal.

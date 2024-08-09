@@ -6,15 +6,15 @@ import {
   Table,
   TableHeader,
   TableCell,
-  TableFooter,
+  // TableFooter,
   TableContainer,
-  Pagination,
+  // Pagination,
 } from '@windmill/react-ui';
 import { ImStack, ImCreditCard } from 'react-icons/im';
 import { FiShoppingCart, FiTruck, FiRefreshCw, FiCheck } from 'react-icons/fi';
 
 import useAsync from '../hooks/useAsync';
-import useFilter from '../hooks/useFilter';
+// import useFilter from '../hooks/useFilter';
 import OrderServices from '../services/OrderServices';
 import Loading from '../components/preloader/Loading';
 import ChartCard from '../components/chart/ChartCard';
@@ -31,9 +31,11 @@ import { useEffect } from 'react';
 const Dashboard = () => {
   dayjs.extend(isBetween);
 
-  const [salesReport, setSalesReport] = useState([]);
+  // const [salesReport, setSalesReport] = useState([]);
+  const [salesReport] = useState([]);
   const [todayOrder, setTodayOrder] = useState(0);
-  const { currentPage, handleChangePage } = useContext(SidebarContext);
+  // const { currentPage, handleChangePage } = useContext(SidebarContext);
+  const { currentPage } = useContext(SidebarContext);
 
   const { data, loading } = useAsync(() =>
     OrderServices.getDashboardOrdersData({

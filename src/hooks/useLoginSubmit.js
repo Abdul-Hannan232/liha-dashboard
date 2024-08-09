@@ -66,7 +66,7 @@ const useLoginSubmit = () => {
         })
         .catch((err) => {
           setLoading(false);
-          notifyError(err ? err.response .data.message : err.message);
+          notifyError(err ? err.response.data.message : err.message);
         });
     }
   };

@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import { useParams } from "react-router";
-import ReactToPrint from "react-to-print";
+// import ReactToPrint from "react-to-print";
 import React, { useContext, useRef } from "react";
-import { FiPrinter } from "react-icons/fi";
+// import { FiPrinter } from "react-icons/fi";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import {
   TableCell,

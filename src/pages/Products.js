@@ -210,7 +210,7 @@ const Products = () => {
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
                 type="search"
                 name="search"
-                value={searchText}
+                value={searchText || ''}
                 onChange={(e) => setSearchText(e.target.value)}
                 placeholder="Search by product name"
               />
