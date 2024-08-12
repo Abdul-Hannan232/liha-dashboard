@@ -17,7 +17,7 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
     // maxSize: 500000,
     maxSize: 5000000,
     onDrop: (acceptedFiles) => {
-      console.log(acceptedFiles);
+      // console.log(acceptedFiles);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -27,6 +27,9 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
       );
     },
   });
+
+  // console.log('old iamge ', imageUrl);
+  
 
   useEffect(() => {
     // const uploadURL = uploadUrl;
@@ -53,7 +56,7 @@ const ProductImgUploader = ({ setImageUrl, imageUrl }) => {
 
             // Array.isArray(imageUrl) && imageUrl.length > 1
             //   ? setImageUrl((prev) => [...prev, correctedImageUrl])
-            //   : setImageUrl(correctedImageUrl);
+            //   : setImageUrl([correctedImageUrl]);
 
             res.data.image && setImageUrl((prev) => [...prev, correctedImageUrl]);
             

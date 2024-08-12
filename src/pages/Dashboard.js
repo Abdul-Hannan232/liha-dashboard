@@ -68,7 +68,8 @@ const Dashboard = () => {
       if (!res[onlyDate]) {
         res[onlyDate] = { date: onlyDate, total: 0, order: 0 };
         salesReport.push(res[onlyDate]);
-      }console.log('value ', value);
+      }
+      // console.log('value ', value);
       res[onlyDate].total += value.totalPrice;
       res[onlyDate].order += 1;
       return res;

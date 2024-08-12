@@ -10,7 +10,7 @@ const useProductSubmit = (id, type) => {
   // const { data, loading } = useAsync(CategoryServices.getAllCategory);
   const { data} = useAsync(CategoryServices.getAllCategory);
 
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState([]);
   const [title, setTitle] = useState("");
   const [children, setChildren] = useState("");
   const [stock, setStock] = useState();
@@ -159,7 +159,7 @@ const useProductSubmit = (id, type) => {
             setValue("stock", res.stock);
             setValue("price", res.price);
             setTag(JSON.parse(res.tag));
-            setImageUrl(res.image ?  res.image : JSON.parse(res.gallery));
+            setImageUrl(res.image ? [ res.image] : JSON.parse(res.gallery));
             setTitle(res.title);
             // setStock(res.stock);
             // setPrice(res.price)

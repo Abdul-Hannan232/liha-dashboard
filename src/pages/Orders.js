@@ -39,7 +39,7 @@ const Orders = () => {
 
   const { dataTable, serviceData } = useFilter(data.orders);
 
-  console.log('>>>>>>>>>>>>. dataTable', dataTable)
+  // console.log('>>>>>>>>>>>>. dataTable', dataTable)
 
   const totalSum = dataTable?.reduce((acc, item) => acc + item.totalPrice, 0) || 0;
 
