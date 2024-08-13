@@ -71,7 +71,7 @@ const useProductSubmit = (id, type) => {
     } else {
       ProductServices.addProduct(productData)
         .then((res) => {
-          console.log('addProduct ',res.reqz);
+          // console.log('addProduct ',res.reqz);
           
           setIsUpdate(true);
           notifySuccess(res.message);

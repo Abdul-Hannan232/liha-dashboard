@@ -4,6 +4,7 @@
   "description": "this is Dashtar-admin built with react.js and tailwindcss",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.25.2",
     "@pathofdev/react-tag-input": "^1.0.7",
     "@react-pdf/renderer": "^1.6.17",
     "@testing-library/jest-dom": "^5.14.1",
@@ -58,16 +59,13 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@types/autoprefixer": "^10.2.0",
-    "@types/tailwindcss": "^3.1.0",
     "autoprefixer": "^9.8.8",
-    "cross-env": "^7.0.3",
+    "cross-env": "7.0.2",
     "cssnano": "4.1.10",
-    "postcss": "^8.4.41",
-    "postcss-cli": "^11.0.0",
+    "postcss-cli": "7.1.1",
     "react-error-overlay": "^6.0.9",
     "release-it": "13.6.4",
-    "tailwindcss": "^3.4.9"
+    "tailwindcss": "^1.9.6"
   },
   "release-it": {
     "github": {
